@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     validates :email, :session_token, :password_digest, :gender, :first_name, :lastname, :date_of_birth, presence: true
     validates :email, uniqueness: true
-    validates :password, {minimum: 6, allow_nil: true}
+    validates :password, length: {minimum: 6, allow_nil: true}
 
-    after_initialize: :ensure_token
+    after_initialize :ensure_token
 
     attr_reader :password
 
