@@ -5,10 +5,10 @@ export const fetchUser = (signInForm)=>{
         data: {user: signInForm},
     });
 }
-// export const createUser = (signInForm)=>{
-//     return $.ajax({
-//         method: "GET",
-//         url: `session/new/`,
-//         data: {user: signInForm},
-//     });
-// }
+export const createUser = (signUpForm)=>{
+    return $.ajax({
+        method: "POST",
+        url: `api/users`,
+        data: {user: signUpForm},
+    });
+}

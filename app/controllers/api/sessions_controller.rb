@@ -1,12 +1,13 @@
 class Api::SessionsController < ApplicationController
 
     def create
-        user = User.find_by_credentials(sessionParams[:email],
+        @user = User.find_by_credentials(sessionParams[:email],
                                         sessionParams[:password])
-        if user.nil?
-            render json: user.errors.full_messages
+        if @user
+            render "api/users/show"
+            login(@user)
         else 
-            login(user)
+            render json: @user.errors.full_messages
         end
     end
 
