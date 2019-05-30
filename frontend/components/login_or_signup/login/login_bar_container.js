@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React from 'react';
+// import React from 'react';
 // import { Link } from 'react-router-dom';
 import LoginBar from './login_bar';
 import { login } from '../../../actions/user_actions'

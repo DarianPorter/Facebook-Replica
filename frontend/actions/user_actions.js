@@ -29,7 +29,7 @@ export const login = (user)=>{
     }
 }
 
-export const signUp = (user)=>{
+export const signup = (user)=>{
     return (dispatch)=>{
         return ApiUtil.createUser(user).then(
             (payload)=>{

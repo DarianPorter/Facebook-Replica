@@ -1,0 +1,102 @@
+.signup-body{
+    width: 50%;
+    margin: auto;
+    height: 680px;
+    display: flex;
+    padding: 20px;
+}
+
+.signup-blurb b{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.signup-blurb h3{
+    font-size: 15px
+}
+
+.signup-blurb div{
+    height: 66px;
+    padding-bottom: 10px;
+    margin-top: 14px;
+}
+
+.signup-blurb{
+    // border: 1px solid red;
+    display: inline-block;
+    width: 60%;
+    background-color: inherit;
+    height: 100%;
+    padding: 20px;
+}
+
+.signup-blurb h1{
+    color: #333;
+    font-size: 28px;
+    padding: 42px 0px;
+    font-weight: bold;
+}
+
+.signup-form{
+    // border: 1px solid red;
+    display: inline-block;
+    width: 40%;
+    background-color: inherit;
+    height: 100%;
+}
+
+.signup-form h1{
+    color: #333;
+    font-size: 36px;
+    padding-top: 10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.signup-form h3{
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.signup-form input{
+    border-radius: 3px;
+    border: 1px solid #bdc6d8;
+    height: 39px;
+    margin-bottom: 10px;
+}
+.signup-form label{
+    font-size: 18px;
+}
+.signup-form p{
+    font-size: 13px;
+    color: #777777;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+.signup-form > input{
+    width: 100%;
+    
+}
+.f-l-name{
+    display: flex;
+    justify-content: space-between
+}
+
+.signup-btn{
+    background-color: #69a74e;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 194px;
+    height: 39px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #2b5115;
+    border-radius: 3px;
+
+}
+
+#male, #female{
+    width: 15px;
+    height: 15px;
+}
