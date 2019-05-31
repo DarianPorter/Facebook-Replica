@@ -12,3 +12,9 @@ export const createUser = (signUpForm)=>{
         data: {user: signUpForm},
     });
 }
+export const logout = ()=>{
+    return({
+        method: "DELETE",
+        url: 'api/session/'
+    })
+}

@@ -1,7 +1,7 @@
 .signup-body{
-    width: 50%;
+    width: 1000px;
     margin: auto;
-    height: 680px;
+    height: 570px;
     display: flex;
     padding: 20px;
 }
@@ -99,4 +99,12 @@
 #male, #female{
     width: 15px;
     height: 15px;
+    margin-left: 5px;
+}
+#male{
+    margin-right: 20px;
+}
+
+.errors{
+    color: red;
 }

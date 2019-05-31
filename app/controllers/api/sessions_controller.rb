@@ -11,6 +11,10 @@ class Api::SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        logout();
+    end
+
     def sessionParams
         params.require(:user).permit(:email,:password)
     end
