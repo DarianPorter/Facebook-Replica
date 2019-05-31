@@ -2,7 +2,6 @@ class Api::UsersController < ApplicationController
     
     def create
         @user = User.new(userParams)
-        debugger
         if @user.save!
             login(@user)
             render "api/users/show"
