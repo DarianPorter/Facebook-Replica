@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import LoginBar from './login_bar';
 import { login } from '../../../actions/user_actions'
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = ({errors})=>{
     return({
-
+        errors: errors.userErrors
     })
 }
 

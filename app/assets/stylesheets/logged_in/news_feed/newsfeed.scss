@@ -1,0 +1,35 @@
+.news-feed{
+    width: 1000px;
+    margin: auto;
+    padding-top: 12px;
+}
+
+.n-f-content{
+    display: flex;
+    margin-top: 38px;
+    background: #e9ebee;
+}
+.options-sec{
+    width: 200px;
+    background: lightgreen;
+    height: 400px;
+    margin-right: 5px;
+    // position: fixed;
+
+}
+
+.post-sec{
+    width: 500px;
+    // background: lightcoral;
+    height: 2000px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.adds-sec{
+    width: 300px;
+    background: lightblue;
+    height: 500px;
+    margin-left: 5px;
+    // position: fixed;
+}

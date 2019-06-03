@@ -22,6 +22,7 @@ class SignUpForm extends React.Component {
     
     handleInput(type){
         return (e)=>{
+            this.props.history.push('/')
             this.setState({[type]: e.target.value});
             console.log(this.state);
         }
@@ -53,7 +54,7 @@ class SignUpForm extends React.Component {
                 <div className="f-l-name">
                     <input type="text" onChange={this.handleInput("firstname")} placeholder="First name"/> <br/>
                     {/* {this.handleErrors("Firstname")} */}
-                    <input type="text" onChange={this.handleInput("lastname")} placeholder="Surname"/>
+                    <input type="text" onChange={this.handleInput("lastname")} placeholder="Last name"/>
                 </div>
                 <input type="text" onChange={this.handleInput("email")} placeholder="Email" />
                 <input type="password" onChange={this.handleInput("password")} placeholder="Password"/>
