@@ -1,7 +1,5 @@
 import React from 'react'
 import PostForm from './post_form'
-import SearchBar from '../search_bar'
-
 
 class NewsFeed extends React.Component{
     constructor(props){
@@ -10,7 +8,6 @@ class NewsFeed extends React.Component{
     render(){
         return(
             <div>
-                <SearchBar/>
                 <div className="news-feed">   
                     <div className="n-f-content">
                         <div className="options-sec">

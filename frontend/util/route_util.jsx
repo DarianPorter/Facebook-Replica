@@ -17,7 +17,7 @@ const Protected = ({component: Component, path: path, loggedIn: loggedIn, exact:
     return <Route path={path} exact={exact} render={(props)=>{
         return(
             loggedIn ? (
-                <Component />
+                <Component {...props}/>
             ) : (
                     <Redirect to="/signUpLogIn" />
             )

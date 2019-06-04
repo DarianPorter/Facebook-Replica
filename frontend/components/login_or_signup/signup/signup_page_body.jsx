@@ -2,6 +2,7 @@ import React from 'react';
 import SignupFormContainer from './signup_container';
 import SignupBodyBlurb from './signup_blurb';
 
+
 const SignInBody = () =>{
     return(
         <div className="signup-body">
@@ -11,4 +12,4 @@ const SignInBody = () =>{
     )
 }
 
-export default SignInBody;
+export default  SignInBody;

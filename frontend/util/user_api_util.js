@@ -13,7 +13,7 @@ export const createUser = (signUpForm)=>{
     });
 }
 export const logout = ()=>{
-    return({
+    return $.ajax ({
         method: "DELETE",
         url: 'api/session/'
     })

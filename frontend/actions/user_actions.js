@@ -56,10 +56,12 @@ export const signup = (user)=>{
 }
 
 export const logoutUser = ()=>{
+    debugger
     return (dispatch)=>{
+        debugger
         return ApiUtil.logout().then(
             ()=>{
-                dispatch(logout())
+                return dispatch(logout())
             },(response)=>{
                 return dispatch(receiveErrors(response.responseJSON))               
             }

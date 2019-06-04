@@ -7,7 +7,6 @@ import {
 const usersReducer =(state= {}, action)=>{
     switch(action.type){
         case RECIEVE_CURRENT_USER:
-            debugger
             return merge({}, state, {
                 [action.existingUser.id]: action.existingUser
             })

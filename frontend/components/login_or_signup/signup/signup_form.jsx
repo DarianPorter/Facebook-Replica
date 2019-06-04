@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props){
@@ -11,31 +12,23 @@ class SignUpForm extends React.Component {
             birthday: "",
             gender: null
         }
+        this.handleInput = this.handleInput.bind(this);
     }
 
     handleSubmit(userinfo) {
         return (e) => {
             e.preventDefault();
-            this.props.signup(userinfo)
+            this.props.signup(userinfo);
+            <Redirect to="/" />
         }
     }
     
     handleInput(type){
         return (e)=>{
-            this.props.history.push('/')
             this.setState({[type]: e.target.value});
-            console.log(this.state);
         }
     }
-    // handleErrors(input){
-    //     let empty = Object.keys(this.props.errors).length == 0
-    //     return empty == true ? null :
-    //     <ul>
-    //         {this.props.errors.map((error)=>{
-    //            return <li> {error.includes(input) ? error : null} </li>
-    //        })}
-    //     </ul>
-    // }
+
     handleErrors(){
         let empty = Object.keys(this.props.errors).length == 0
         return empty == true ? null :
