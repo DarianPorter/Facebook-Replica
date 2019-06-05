@@ -1,5 +1,6 @@
-import React from 'react'
-import PostForm from './post_form'
+import React from 'react';
+import PostForm from './post_form';
+import PostIndex from './posts_index';
 
 class NewsFeed extends React.Component{
     constructor(props){
@@ -15,6 +16,7 @@ class NewsFeed extends React.Component{
                         </div>
                         <div className="post-sec">
                             <PostForm />
+                            <PostIndex />
                         </div>
                         <div className="adds-sec">
 

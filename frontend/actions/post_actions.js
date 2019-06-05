@@ -19,9 +19,6 @@ const createNewPost = (postForm) =>{
     })
 }
 
-// do i have to pass in post so i have a refrence to delete it from my redux state??
-// or do i update all the posts because the redux store state changed and that would
-// cause a top level rerender ??????????????????? 
 const deletePost = (postId)=>{
     return({
         type: DELETE_POST,
@@ -36,7 +33,7 @@ const editPost = (postForm)=>{
     })
 }
 
-const fetchPosts = (posts)=>{
+const getAllPosts = (posts)=>{
     return ({
         type: FETCH_POSTS,
         posts: posts
@@ -83,7 +80,7 @@ export const fetchAllPosts = ()=>{
     return (dispatch)=>{
         return ApiUtil.fetchPosts().then(
             (payload)=>{
-                return dispatch(fetchPosts(payload))
+                return dispatch(getAllPosts(payload))
             },(response)=>{
                 return dispatch(postErrors(response))
             }

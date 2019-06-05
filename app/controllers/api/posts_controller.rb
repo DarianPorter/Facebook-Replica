@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
     def index
         # currentuser.friends.posts
         @posts = Post.all
-        render "api/posts/index" # does not work!!!!!
+        render "api/posts/index.json.jbuilder" 
     end
 
     def create

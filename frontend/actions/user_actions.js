@@ -56,9 +56,7 @@ export const signup = (user)=>{
 }
 
 export const logoutUser = ()=>{
-    debugger
     return (dispatch)=>{
-        debugger
         return ApiUtil.logout().then(
             ()=>{
                 return dispatch(logout())

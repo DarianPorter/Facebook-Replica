@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class SignInForm extends React.Component {
     constructor(props){
@@ -20,8 +21,8 @@ class SignInForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         let userInfo = Object.assign({},this.state)
-        this.props.login(userInfo)
-        this.props.history.push('/')
+        this.props.login(userInfo);
+        <Redirect to="/" />
     }
 
     render(){

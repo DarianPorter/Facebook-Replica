@@ -12,7 +12,6 @@ const msp = (state, ownProps)=>{
 const mdp = (dispatch)=>{
     return ({
         logout: ()=>{ 
-            debugger
             return dispatch(logoutUser())
         }
     })
@@ -34,7 +33,6 @@ class SearchBar extends React.Component{
     }
 
     logout(e){
-        debugger
         e.preventDefault();
         this.props.logout();
     }
