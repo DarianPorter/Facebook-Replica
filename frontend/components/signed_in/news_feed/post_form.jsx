@@ -28,7 +28,6 @@ class PostForm extends React.Component{
     
     handleInput(e){
         this.setState({"body": e.target.value});
-        console.log(this.state)
     }
 
     handleSubmit(e){
@@ -41,7 +40,7 @@ class PostForm extends React.Component{
         return(
             <div className="n-f-postform">
                 <div className="form-header">
-                    create post
+                    Create Post
                 </div>
                 <div className="pic-textarea">
                     <img 
@@ -57,9 +56,9 @@ class PostForm extends React.Component{
                 </div>
                 <div className="form-footer">
                     <button onClick={this.handleSubmit}>submit</button>
-                    <p>photo/video</p>
+                    <p>Photo/Video</p>
                     <p>Tag Friend</p>
-                    <p>feeling/Activities</p>
+                    <p>Feeling/Activities</p>
                 </div>
             </div>
         );  

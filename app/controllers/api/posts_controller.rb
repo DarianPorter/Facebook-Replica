@@ -1,6 +1,8 @@
 class Api::PostsController < ApplicationController
     def index
         # currentuser.friends.posts
+        # sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_id ORDER BY posts.created_at DESC "
+        # @posts = ActiveRecord::Base.connection.execute(sql).values
         @posts = Post.all
         render "api/posts/index.json.jbuilder" 
     end

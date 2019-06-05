@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import SignupForm from './signup_form'
 import {signup} from '../../../actions/user_actions'
 
-const mapStateToProps = ({errors})=>{
+const mapStateToProps = (state)=>{
     return({
-        errors: errors.userErrors
+        errors: state.errors.userErrors
     })
 }
 

@@ -6,7 +6,7 @@
     border: solid 1px #dddfe2;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 3px;
+    padding-left: 8px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -35,8 +35,8 @@
     color: #989ca3;
 }
 .form-footer{
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     height: 49px;
     background: white;
     border-top: 1px solid #e9ebee;
@@ -49,8 +49,15 @@
 }
 
 .form-footer p{
+    padding: 10px 10px;
     text-align: center;
     text-align: -webkit-match-parent;
+    border-radius: 25px;
+    background-color: #f5f6f7;
+}
+.form-footer p:hover{
+    background-color: #e6e6e6;
+    cursor: pointer;
 }
 
 .form-footer button{

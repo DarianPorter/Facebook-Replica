@@ -32,7 +32,7 @@ class PostIndex extends React.Component {
     render(){
         return (
             <div className="posts_index">
-                {this.props.posts.map((post, i)=>{
+                {this.props.posts.reverse().map((post, i)=>{
                     return <Post key={i} post={post}/>
                 })}
             </div>
