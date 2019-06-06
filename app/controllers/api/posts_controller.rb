@@ -3,8 +3,12 @@ class Api::PostsController < ApplicationController
         # currentuser.friends.posts
         # sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_id ORDER BY posts.created_at DESC "
         # @posts = ActiveRecord::Base.connection.execute(sql).values
-        @posts = Post.all
-        render "api/posts/index.json.jbuilder" 
+        @posts = Post.all.includes(:user)
+        if params[:user_id]
+            debugger
+        else
+            render "api/posts/index.json.jbuilder" 
+        end
     end
 
     def create
@@ -29,8 +33,9 @@ class Api::PostsController < ApplicationController
 
     def destroy 
         # watch///////
-        @post = params[:id]
+        @post = Post.find(params[:id])
         @post.destroy
+        render "api/posts/show"
     end
 
     def post_params

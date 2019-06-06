@@ -18,8 +18,9 @@ const postReducer = (state= {}, action) =>{
                 [action.post.id]: action.post
             })
         case DELETE_POST:
-            newState = merge({},state) 
+            let newState = merge({},state) 
             delete newState[action.postId]
+            return newState
         case FETCH_POSTS:
             return merge({},state,action.posts)
         default:

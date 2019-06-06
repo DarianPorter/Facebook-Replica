@@ -1,0 +1,39 @@
+.top-section{
+    border-radius: 4px;
+    border: 1px solid #d3d5db;
+    margin-top: 39px;
+    width: 851px;
+
+}
+.cover-photo{
+    background-size: auto;
+    background-size: 851px 359px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0W42GzDQuybBZElkZpaoH49p4AYhWmTdRsVW90gGcGszXeTQSdw");
+    width: 851px;
+    height: 359px;
+}
+.options{
+    padding-left: 201px;
+    display: flex;
+    height: 43px;
+    color: #385898;
+    font-size: 14px;
+    background-color: white;
+    border-bottom-left-radius : 3px;
+    border-bottom-right-radius : 3px;
+
+}
+.options p{
+    padding: 10px 17px;
+    border-left: 1px solid #d3d5db;
+    border-right: 1px solid #d3d5db;
+}
+.pfp {
+    margin-left: 10px;
+    margin-top: 205px;
+    height: 168px;
+    width: 168px;
+    border-radius: 100%;
+    border: 5px solid white;
+    box-shadow: 0 0 0 1pt #c2c4c8;
+}

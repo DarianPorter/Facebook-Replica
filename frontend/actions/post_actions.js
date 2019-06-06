@@ -22,7 +22,7 @@ const createNewPost = (postForm) =>{
 const deletePost = (postId)=>{
     return({
         type: DELETE_POST,
-        post: postId
+        postId: postId
     })
 }
 

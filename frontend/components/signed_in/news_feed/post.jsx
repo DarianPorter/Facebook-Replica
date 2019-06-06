@@ -3,9 +3,20 @@ import React from 'react'
 class Post extends React.Component{
     constructor(props){
         super(props)
+        this.delete = this.props.delete.bind(this);
+        console.log(this.props)
     }
 
     render(){
+        let deleteButton = this.props.currentUserId === this.props.authorId ?
+        (
+            <p
+                className="delete"
+                onClick={this.delete(this.props.post.id)}
+            > Delete</p>
+        ) : (
+            null
+        )
         return(
             <div className="post-item">
                 <div className="post-info">
@@ -16,6 +27,9 @@ class Post extends React.Component{
                     <div>
                         <p className="name">{this.props.post.firstname + " " + this.props.post.lastname}</p>
                         <p className="time"> {this.props.post.created_at}</p>
+                    </div>
+                    <div>
+                        { deleteButton }
                     </div>
                 </div>
                 <div className="post-body">

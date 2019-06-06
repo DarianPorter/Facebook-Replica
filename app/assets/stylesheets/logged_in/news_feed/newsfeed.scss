@@ -10,12 +10,14 @@
     background: #e9ebee;
 }
 .options-sec{
+    background: white;
+    border: 1px solid #d3d5db;
+    border-radius: 5px;
     width: 200px;
-    background: lightgreen;
     height: 400px;
     margin-right: 5px;
-    position: fixed;
     margin-right: 805px;
+    position: fixed;
 
 }
 
@@ -27,8 +29,10 @@
 
 .adds-sec{
     width: 300px;
-    background: lightblue;
     height: 500px;
+    background: white;
+    border: 1px solid #d3d5db;
+    border-radius: 5px;   
     position: fixed;
     margin-left: 718px;
 }
