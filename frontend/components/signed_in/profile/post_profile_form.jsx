@@ -16,19 +16,39 @@ const mdp =(dispatch)=>{
 class ProfilePostForm extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            body: " "
+        }
+    }
+    submitForm(postInfo){
+        return()=>{
+            this.props.createPost(postInfo)
+        }
+    }
+    handleInput(){
+        return (e)=>{
+            this.setState({"body": e.target.value})
+            console.log(this.state)
+        }
     }
 
     render(){
         return(
             <div className="profile-post-form">
                 <div className="profile-post-form-header">
-                    
+                    <p>create post</p>
                 </div>
                 <div className="profile-post-form-content">
+                    <textarea 
+                        onChange={this.handleInput()}
+                        placeholder={`write something to ...`}
+                    >
 
+
+                    </textarea>
                 </div>
                 <div className="profile-post-form-footer">
-
+                    <button> Share </button>
                 </div>
             </div>
         );

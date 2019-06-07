@@ -1,4 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
+const msp = (state)=>{
+    return({
+        
+    })
+}
+const mdp = (dispatch)=>{
+    return({
+
+    })
+}
 
 class Post extends React.Component{
     constructor(props){
@@ -6,7 +19,11 @@ class Post extends React.Component{
         this.delete = this.props.delete.bind(this);
         console.log(this.props)
     }
-
+    goToUserPage(){
+        return()=>{
+            this.props.history.push(`/users/${this.props.authorId}`)
+        }
+    }
     render(){
         let deleteButton = this.props.currentUserId === this.props.authorId ?
         (
@@ -17,6 +34,10 @@ class Post extends React.Component{
         ) : (
             null
         )
+        let firstname = this.props.post.firstname === undefined ? 
+            (this.props.firstname) : (this.props.post.firstname )
+        let lastname = this.props.post.lastname === undefined ?
+            (this.props.lastname) : (this.props.post.lastname)
         return(
             <div className="post-item">
                 <div className="post-info">
@@ -25,10 +46,12 @@ class Post extends React.Component{
                         alt="pfp"
                     />
                     <div>
-                        <p className="name">{this.props.post.firstname + " " + this.props.post.lastname}</p>
-                        <p className="time"> {this.props.post.created_at}</p>
-                    </div>
-                    <div>
+                        <div>
+                            <p className="name"
+                                onClick={this.goToUserPage()}
+                            >{firstname + " " + lastname}</p>
+                            <p className="time"> {this.props.post.created_at}</p>
+                        </div>
                         { deleteButton }
                     </div>
                 </div>
@@ -56,4 +79,4 @@ class Post extends React.Component{
     }
 }
 
-export default Post
+export default withRouter(connect(msp,mdp)(Post))

@@ -11,6 +11,7 @@
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0W42GzDQuybBZElkZpaoH49p4AYhWmTdRsVW90gGcGszXeTQSdw");
     width: 851px;
     height: 359px;
+    position: relative;
 }
 .options{
     padding-left: 201px;
@@ -36,4 +37,12 @@
     border-radius: 100%;
     border: 5px solid white;
     box-shadow: 0 0 0 1pt #c2c4c8;
+}
+.profile-user-name {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    top: 300px;
+    left: 220px;
+    z-index: 0;
 }

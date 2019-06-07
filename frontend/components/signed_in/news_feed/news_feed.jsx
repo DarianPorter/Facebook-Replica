@@ -16,7 +16,7 @@ class NewsFeed extends React.Component{
                         </div>
                         <div className="post-sec">
                             <PostForm />
-                            <PostIndex />
+                            <PostIndex usersPage={false}/>
                         </div>
                         <div className="adds-sec">
 

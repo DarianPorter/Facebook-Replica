@@ -3,10 +3,13 @@ class Api::PostsController < ApplicationController
         # currentuser.friends.posts
         # sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_id ORDER BY posts.created_at DESC "
         # @posts = ActiveRecord::Base.connection.execute(sql).values
-        @posts = Post.all.includes(:user)
+        
         if params[:user_id]
-            debugger
+            @posts = User.find(params[:user_id]).posts
+            render "api/posts/index.json.jbuilder" 
+
         else
+            @posts = Post.all.includes(:user)
             render "api/posts/index.json.jbuilder" 
         end
     end

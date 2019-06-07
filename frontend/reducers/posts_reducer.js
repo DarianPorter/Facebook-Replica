@@ -4,6 +4,7 @@ import {
     EDIT_POST,
     DELETE_POST,
     FETCH_POSTS,
+    FETCH_USERS_POSTS,
 } from '../actions/post_actions'
 //watch!!!
 const postReducer = (state= {}, action) =>{
@@ -23,6 +24,8 @@ const postReducer = (state= {}, action) =>{
             return newState
         case FETCH_POSTS:
             return merge({},state,action.posts)
+        case FETCH_USERS_POSTS:
+            return merge({},state, action.posts)
         default:
             return state
     }

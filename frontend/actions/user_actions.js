@@ -2,7 +2,7 @@ import * as ApiUtil from '../util/user_api_util';
 export const RECIEVE_CURRENT_USER = "RECIEVE_CURRENT_USER";
 export const RECIEVE_NEW_USER = "RECIEVE_NEW_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
-export const RECIEVE_LOGIN_ERRORS = "RECIEVE_LOGIN_ERRORS"
+export const RECIEVE_LOGIN_ERRORS = "RECIEVE_LOGIN_ERRORS";
 
 const receiveErrors = (errors)=>{
     return({

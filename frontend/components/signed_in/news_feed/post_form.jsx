@@ -4,8 +4,8 @@ import { createPost } from '../../../actions/post_actions'
 
 const msp = (state)=>{
     return ({
+        firstname: state.entities.users[state.session.id].firstname,
         user_id: state.session.id,
-        firstName: state.entities.users[state.session.id].firstname
     })
 }
 const mdp = (dispatch)=>{
@@ -50,7 +50,7 @@ class PostForm extends React.Component{
                     <textarea 
                         className="form-input" 
                         onChange={this.handleInput} 
-                        placeholder={`Whats on your mind, ${this.props.firstName}?`}
+                        placeholder={`Whats on your mind, ${this.props.firstname}?`}
                         id="input"
                     ></textarea>
                 </div>

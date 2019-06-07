@@ -21,9 +21,16 @@ export const deletePost =(id)=>{
 }
 
 export const editPost = (post)=>{
-    return({
+    return $.ajax({
         method: "PATCH",
         url: `api/posts/${post.id}`,
         data: {post: post}
+    })
+}
+
+export const fetchUsersPosts = (id)=>{
+    return $.ajax({
+        method: "GET",
+        url: `/api/users/${id}/posts`
     })
 }

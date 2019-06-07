@@ -27,6 +27,7 @@ class TopProfileSection extends React.Component{
                             alt="pfp" 
                             className="pfp"
                         />
+                        <h1 className="profile-user-name">hello</h1>
                 </div>
                 <div className="options">
                     <p>Timeline</p>
