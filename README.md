@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Mugbook
 
-Things you may want to cover:
+Mugbook is a single-page app built on Ruby on Rails and React/Redux paying homage of the well known website Facebook, created by Mark Zuckerberg. Mugbooks main feature is making posts for every user to see. Your news feed is where you can see all posts made by users
 
-* Ruby version
+# Technologies Used
 
-* System dependencies
+* Ruby on Rails
+* PostgreSQL
+* JavaScript (ES6)
+* React.js
+* Redux
+* HTML
+* CSS
 
-* Configuration
+# Future Implementations
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Posting for all users to see
