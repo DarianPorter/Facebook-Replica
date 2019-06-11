@@ -2,5 +2,37 @@
     height: 150px;
     background: white;
     z-index: 1;
+    min-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around; 
+}
+.footer-content{
+    width: 1000px;   
+}
+.lan{
+    display: flex;
+    margin: auto;
+}
+.lan ul{
+    display: flex;
+    width: 20px;
+    padding-top: 8px;
+    flex-direction: row;
+}
+.lan li{
+    padding-left: 10px;
+    display: flex;
+    color: #385898;
+    writing-mode: horizontal-tb;
+}
+.lan li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.seperator{
+    border-top: 1px #dddfe2 solid;
+}
+.ui-list{
 
 }

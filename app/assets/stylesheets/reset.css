@@ -20,7 +20,10 @@ time, mark, audio, video {
     font-family: 'Roboto', sans-serif;
 }
 #root{
-    background: #e9ebee
+    background: #e9ebee;
+    width: 100% ;
+    flex-shrink: 0;
+    display: inline-block;
 }
 
 /* make sure to set some focus styles for accessibility */
