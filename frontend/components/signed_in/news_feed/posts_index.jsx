@@ -1,79 +1,36 @@
 import React from 'react';
-import Post from './post';
-import { 
-    fetchAllPosts, 
-    deleteExistingPost,
-    fetchAllUsersPosts
-} from '../../../actions/post_actions';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import Post from './old_post index/post'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import { fetchAllFriends } from '../../../actions/user_actions'
 
-const msp =(state)=>{
+const msp = (state)=>{
     return({
-        firstname: state.entities.users[state.session.id].firstname,
-        lastname: state.entities.users[state.session.id].lastname,
-        user: state.entities.users[state.session.id],
-        currentUserId: state.session.id,
-        posts: Object.keys(state.entities.posts).map((id)=>{
-            return state.entities.posts[id]
-        })
+        friends: state.friends
     })
 }
 
 const mdp = (dispatch)=>{
     return({
-        fetchPosts: () => { return dispatch(fetchAllPosts())},
-        fetchAllUsersPostss: (currentUserId)=>{return dispatch(fetchAllUsersPosts(currentUserId))},
-        deletePost: (postId) => { return () => {  return dispatch(deleteExistingPost(postId))}},
+        fetchFreiends: () => { return dispatch(fetchAllFriends())}
     })
 }
 
-class PostIndex extends React.Component {
+class _PostIndex extends React.Component{
     constructor(props){
         super(props)
     }
- 
+
     componentDidMount(){
-        if(this.props.usersPage === false){
-            this.props.fetchPosts();
-        }else{
-            this.props.fetchAllUsersPostss(this.props.match.params.user_id);
-        }
+        this.props.fetchFreiends()
     }
 
     render(){
-        return (
-            <div className="posts_index">
-                {this.props.posts.reverse().map((post, i)=>{
-                    if (this.props.usersPage == true){
-                        if (this.props.match.params.user_id == post.user_id) {
-                            return (
-                                <Post
-                                    key={i}
-                                    post={post}
-                                    delete={this.props.deletePost}
-                                    currentUserId={this.props.currentUserId}
-                                    authorId={post.user_id}
-                                />
-                            )
-                        }
-                    }else{
-                        return (
-                            <Post
-                                key={i}
-                                post={post}
-                                delete={this.props.deletePost}
-                                currentUserId={this.props.currentUserId}
-                                authorId={post.user_id}
-                            />
-                        )
-                    }
-                    
-                })}
+        return(
+            <div>
+                <h1>hello</h1>
             </div>
         )
     }
 }
-
-export default withRouter(connect(msp,mdp)(PostIndex));
-
+export default withRouter(connect(msp, mdp)(_PostIndex));

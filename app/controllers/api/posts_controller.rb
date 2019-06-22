@@ -5,7 +5,7 @@ class Api::PostsController < ApplicationController
         # @posts = ActiveRecord::Base.connection.execute(sql).values
         
         if params[:user_id]
-            @posts = User.find(params[:user_id]).posts
+            @posts = User.find(params[:receiver_id]).posts
             render "api/posts/index.json.jbuilder" 
 
         else
@@ -42,6 +42,6 @@ class Api::PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:body, :user_id)
+        params.require(:post).permit(:body, :user_id, :receiver_id)
     end
 end

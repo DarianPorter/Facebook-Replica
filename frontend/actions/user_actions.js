@@ -3,6 +3,7 @@ export const RECIEVE_CURRENT_USER = "RECIEVE_CURRENT_USER";
 export const RECIEVE_NEW_USER = "RECIEVE_NEW_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECIEVE_LOGIN_ERRORS = "RECIEVE_LOGIN_ERRORS";
+export const FETCH_FRIENDS = "FETCH_FRIENDS"; 
 
 const receiveErrors = (errors)=>{
     return({
@@ -28,6 +29,13 @@ const createNewUser = (newUser) =>{
 const logout = ()=>{
     return ({
         type: LOGOUT_CURRENT_USER,
+    })
+}
+
+const getFriends = (friends)=>{
+    return({
+        type: FETCH_FRIENDS,
+        friends: friends
     })
 }
 
@@ -62,6 +70,19 @@ export const logoutUser = ()=>{
                 return dispatch(logout())
             },(response)=>{
                 return dispatch(receiveErrors(response.responseJSON))               
+            }
+        )
+    }
+}
+
+export const fetchAllFriends = ()=>{
+    return (dispatch)=>{
+        return ApiUtil.fetchAllUsersFriends().then(
+            (payload)=>{
+                debugger
+                return dispatch(getFriends(payload))
+            },(response)=>{
+                return dispatch(receiveErrors(response))
             }
         )
     }

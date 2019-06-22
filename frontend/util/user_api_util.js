@@ -18,3 +18,9 @@ export const logout = ()=>{
         url: 'api/session/'
     })
 }
+export const fetchAllUsersFriends = ()=>{
+    return $.ajax({
+        method: "GET",
+        url: "api/users"
+    })
+}

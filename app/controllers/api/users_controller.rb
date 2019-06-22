@@ -10,6 +10,11 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def index
+        @users = User.all.includes(:posts)
+        render "api/users/index"
+    end
+
     def show 
         
     end
