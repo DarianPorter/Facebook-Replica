@@ -20,6 +20,7 @@ class PostForm extends React.Component{
         this.state ={
             body: "",
             user_id: this.props.user_id,
+            receiver_id: this.props.user_id
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -66,3 +67,4 @@ class PostForm extends React.Component{
 }
 
 export default connect(msp, mdp)(PostForm)
+//*** to be tested it should work */

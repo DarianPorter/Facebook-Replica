@@ -79,7 +79,6 @@ export const fetchAllFriends = ()=>{
     return (dispatch)=>{
         return ApiUtil.fetchAllUsersFriends().then(
             (payload)=>{
-                debugger
                 return dispatch(getFriends(payload))
             },(response)=>{
                 return dispatch(receiveErrors(response))

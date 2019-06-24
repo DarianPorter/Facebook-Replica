@@ -1,18 +1,25 @@
 import React from 'react';
-import Post from './old_post index/post'
+import Post from './post'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { fetchAllFriends } from '../../../actions/user_actions'
+import { fetchAllPosts, deleteExistingPost } from '../../../actions/post_actions'
 
 const msp = (state)=>{
     return({
-        friends: state.friends
+        current_user_id: state.session.id,
+        friends: state.entities.users,
+        posts: Object.keys(state.entities.posts).map((id) => {
+            return state.entities.posts[id]
+        })
     })
 }
 
 const mdp = (dispatch)=>{
     return({
-        fetchFreiends: () => { return dispatch(fetchAllFriends())}
+        fetchFreiends: () => { return dispatch(fetchAllFriends())},
+        fetchAllPosts: () => { return dispatch(fetchAllPosts())},
+        deletePost: () => { return dispatch(deleteExistingPost())},
     })
 }
 
@@ -22,13 +29,40 @@ class _PostIndex extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchAllPosts()
         this.props.fetchFreiends()
+    }
+
+    constructPost(post, i){
+        // debugger
+        return(
+            <Post   
+                key={i}
+                post={post}
+                delete={this.props.deletePost}
+                currentUserId={this.props.current_user_id}
+                firstname={this.props.friends[post.user_id].firstname}
+                lastname={this.props.friends[post.user_id].lastname}
+            />
+        )
     }
 
     render(){
         return(
-            <div>
-                <h1>hello</h1>
+            <div className="posts_index">
+                {this.props.posts.reverse().map((post, i)=>{
+                    if(this.props.match.params.user_id == undefined){
+                        return (
+                            this.constructPost(post, i)
+                        )
+                    }else{  
+                        if (this.props.match.params.user_id == post.receiver_id) {
+                            return(
+                                this.constructPost(post, i)
+                            )
+                        }
+                    }
+                })}
             </div>
         )
     }

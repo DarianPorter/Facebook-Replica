@@ -6,7 +6,6 @@ import {
 } from "../actions/user_actions"
 
 const usersReducer =(state= {}, action)=>{
-    debugger
     switch(action.type){
         case RECIEVE_CURRENT_USER:
             return merge({}, state, {
@@ -17,7 +16,6 @@ const usersReducer =(state= {}, action)=>{
                 [action.newUser.id]: action.newUser
             })
         case FETCH_FRIENDS:
-            debugger
             return merge({}, state, action.friends)
         default:
             return state;

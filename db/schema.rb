@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_161851) do
+ActiveRecord::Schema.define(version: 2019_06_24_205548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_161851) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "receiver_id"
+    t.integer "receiver_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
