@@ -1,3 +1,3 @@
-class Friend > ApplicationRecord
+class Friend < ApplicationRecord
 
 end

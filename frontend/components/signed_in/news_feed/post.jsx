@@ -42,7 +42,7 @@ class Post extends React.Component{
                 ) : (
             null
         )
-        // debugger
+        debugger
         return (
             <div className="post-item">
                 <div className="post-info">
