@@ -19,7 +19,7 @@ const mdp = (dispatch)=>{
     return({
         fetchFreiends: () => { return dispatch(fetchAllFriends())},
         fetchAllPosts: () => { return dispatch(fetchAllPosts())},
-        deletePost: () => { return dispatch(deleteExistingPost())},
+        deletePost: (id) => { return dispatch(deleteExistingPost(id))},
     })
 }
 
@@ -29,12 +29,11 @@ class _PostIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchAllPosts()
         this.props.fetchFreiends()
+        this.props.fetchAllPosts()
     }
 
     constructPost(post, i){
-        // debugger
         return(
             <Post   
                 key={i}

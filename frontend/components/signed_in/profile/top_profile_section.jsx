@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import { findPerson} from '../../../actions/user_actions'
 
-const msp =(state)=>{
+const msp =(state, ownProps)=>{
     return({
-
+        userPageName: state.entities.users[ownProps.match.params.user_id]
     })
 }
 
@@ -18,7 +20,12 @@ class TopProfileSection extends React.Component{
         super(props)
     }
 
+    // componentDidMount(){
+    //     findPerson(this.props.match.params.user_id)
+    // }
+
     render(){
+        debugger
         return(
             <div className="top-section">
                 <div className="cover-photo">
@@ -27,7 +34,11 @@ class TopProfileSection extends React.Component{
                             alt="pfp" 
                             className="pfp"
                         />
-                        <h1 className="profile-user-name">hello</h1>
+                        <h1 className="profile-user-name">{
+                            this.props.userPageName.firstname 
+                            + " " + 
+                            this.props.userPageName.lastname
+                        }</h1>
                 </div>
                 <div className="options">
                     <p>Timeline</p>
@@ -39,4 +50,4 @@ class TopProfileSection extends React.Component{
     }
 }
 
-export default connect(msp,mdp)(TopProfileSection)
+export default withRouter(connect(msp,mdp)(TopProfileSection));

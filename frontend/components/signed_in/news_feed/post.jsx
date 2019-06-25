@@ -32,10 +32,12 @@ class Post extends React.Component{
     }
 
     render(){
+        const that = this;
         let deleteButton = this.props.currentUserId === this.props.post.user_id ?(
             <p
                 className="delete"
-                onClick={()=>{this.delete(this.props.post.id)}}
+                onClick={()=>{
+                    debugger; that.delete(that.props.post.id)}}
             > Delete</p>
                 ) : (
             null
@@ -53,7 +55,7 @@ class Post extends React.Component{
                             <p className="name"
                                 onClick={this.goToUserPage}
                             >{this.props.firstname + " " + this.props.lastname}</p>
-                            <p className="time"> {this.props.post.created_at}</p>
+                            <p className="time"> {this.props.post.date}</p>
                         </div>
                         {deleteButton}
                     </div>
@@ -62,7 +64,7 @@ class Post extends React.Component{
                     <p>{this.props.post.body}</p>
                 </div>
                 <div className="post-actions">
-                    <p>like</p> <p>comment</p> <p>share</p>
+                    <p><i className="far fa-thumbs-up"></i>like</p> <p> <i className="far fa-comment"></i> comment</p> <p> <i className="fas fa-share"></i> share</p>
                 </div>
                 <div className="post-comments">
 

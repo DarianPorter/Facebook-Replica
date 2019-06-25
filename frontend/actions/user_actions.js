@@ -4,6 +4,7 @@ export const RECIEVE_NEW_USER = "RECIEVE_NEW_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECIEVE_LOGIN_ERRORS = "RECIEVE_LOGIN_ERRORS";
 export const FETCH_FRIENDS = "FETCH_FRIENDS"; 
+export const FIND_USER = "FIND_USER"
 
 const receiveErrors = (errors)=>{
     return({
@@ -37,6 +38,25 @@ const getFriends = (friends)=>{
         type: FETCH_FRIENDS,
         friends: friends
     })
+}
+
+const findUser = (user)=>{
+    return {
+        type: FIND_USER,
+        user: user
+    }
+}
+
+export const findPerson = (id)=>{
+    return (dispatch)=>{
+        return ApiUtil.findUser(id).then(
+            (payload)=>{
+                return dispatch(findUser(payload))
+            },(response)=>{
+                return dispatch(receiveErrors(response))
+            }
+        )
+    }
 }
 
 export const login = (user)=>{

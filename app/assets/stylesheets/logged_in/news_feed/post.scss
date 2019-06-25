@@ -22,6 +22,7 @@
     height: 32px;
     padding: 12px;
     border-radius: 32px;
+    padding-right: 15px;
 }
 .post-actions{
     display: flex;
@@ -60,7 +61,6 @@
     height: 32px;
     border-radius: 32px;
     outline: none;
-    color: #8d949e;
     background-color: #f2f3f5;
     border: #ccd0d4 solid 1px;
     padding: 8px 12px;
@@ -88,6 +88,8 @@
     border-radius: 20px;
     height: fit-content;
     margin-right: 20px;
+    border: #ccd0d4 solid 1px;
+
 }
 .delete:hover{
     background: #e9e9e9;
