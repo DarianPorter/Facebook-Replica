@@ -18,23 +18,26 @@ class ProfilePostForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            body: " ",
-            receiver_id: this.props.match.params.user_id
+            body: "",
+            receiver_id: this.props.match.params.user_id,
+            user_id: this.props.user_id,
         }
+        this.submitForm = this.submitForm.bind(this);
     }
     submitForm(postInfo){
         return()=>{
+            document.getElementById("pfp_input").value = ""
             this.props.createPost(postInfo)
         }
     }
     handleInput(){
         return (e)=>{
             this.setState({"body": e.target.value})
-            console.log(this.state)
         }
     }
 
     render(){
+        // add pencil 
         return(
             <div className="profile-post-form">
                 <div className="profile-post-form-header">
@@ -43,14 +46,13 @@ class ProfilePostForm extends React.Component{
                 <div className="profile-post-form-content">
                     <textarea 
                         onChange={this.handleInput()}
-                        placeholder={`write something to ...`}
+                        placeholder={`Write something to ...`}
+                        id="pfp_input"
                     >
-
-
                     </textarea>
                 </div>
                 <div className="profile-post-form-footer">
-                    <button> Share </button>
+                    <button onClick={this.submitForm(this.state)}> Share </button>
                 </div>
             </div>
         );

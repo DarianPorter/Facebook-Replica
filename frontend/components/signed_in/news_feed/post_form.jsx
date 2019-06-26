@@ -32,7 +32,6 @@ class PostForm extends React.Component{
     }
 
     handleSubmit(e){
-        debugger
         e.preventDefault();
         this.props.submitPost(this.state);
         document.getElementById("input").value = ""
@@ -57,7 +56,7 @@ class PostForm extends React.Component{
                     ></textarea>
                 </div>
                 <div className="form-footer">
-                    <button onClick={this.handleSubmit}>submit</button>
+                    <button onClick={this.handleSubmit}>Submit</button>
                     <p>Photo/Video</p>
                     <p>Tag Friend</p>
                     <p>Feeling/Activities</p>
