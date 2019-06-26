@@ -25,7 +25,6 @@ class TopProfileSection extends React.Component{
     // }
 
     render(){
-        debugger
         return(
             <div className="top-section">
                 <div className="cover-photo">

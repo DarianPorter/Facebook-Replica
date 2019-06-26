@@ -22,7 +22,6 @@ class Post extends React.Component{
     }
 
     goToUserPage(){
-        debugger
         this.props.history.push(`/users/${this.props.post.user_id}`)
     
     }
@@ -37,12 +36,11 @@ class Post extends React.Component{
             <p
                 className="delete"
                 onClick={()=>{
-                    debugger; that.delete(that.props.post.id)}}
+                    that.delete(that.props.post.id)}}
             > Delete</p>
                 ) : (
             null
         )
-        debugger
         return (
             <div className="post-item">
                 <div className="post-info">

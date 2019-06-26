@@ -40,8 +40,8 @@ class _PostIndex extends React.Component{
                 post={post}
                 delete={this.props.deletePost}
                 currentUserId={this.props.current_user_id}
-                firstname={this.props.friends[post.user_id].firstname}
-                lastname={this.props.friends[post.user_id].lastname}
+                firstname={this.props.friends[post.user_id] ? this.props.friends[post.user_id].firstname : null}
+                lastname={this.props.friends[post.user_id] ? this.props.friends[post.user_id].lastname : null}
             />
         )
     }
