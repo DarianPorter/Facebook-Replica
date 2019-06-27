@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createPost } from '../../../actions/post_actions'
+import faker from 'faker'
+
 
 const msp = (state)=>{
     return ({
@@ -27,6 +29,13 @@ class PostForm extends React.Component{
 
     }
     
+    randomPost(){
+        return ()=>{
+            let post = faker.lorem.sentence();
+            this.setState({body: post})
+            document.getElementById("input").value = post
+        }
+    }
     handleInput(e){
         this.setState({"body": e.target.value});
     }
@@ -57,7 +66,7 @@ class PostForm extends React.Component{
                 </div>
                 <div className="form-footer">
                     <button onClick={this.handleSubmit}>Submit</button>
-                    <p>Photo/Video</p>
+                    <p onClick={this.randomPost()}> Generate Post</p>
                     <p>Tag Friend</p>
                     <p>Feeling/Activities</p>
                 </div>

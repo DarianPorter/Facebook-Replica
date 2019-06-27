@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import faker from 'faker'
 
 class SignUpForm extends React.Component {
     constructor(props){
@@ -14,12 +15,58 @@ class SignUpForm extends React.Component {
         }
         this.handleInput = this.handleInput.bind(this);
     }
+    parseDate(){
+        let date = faker.date.past();
+        let year = '' + date.getFullYear();
+        let month = '' + (date.getMonth() + 1)
+        let day = '' + date.getDate()
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        return [year, month, day].join('-');
+    }
 
+    getRandomGender(){
+        let gender = Math.round(Math.random()) == 0 ? "male" : "female";
+        document.getElementById(gender).checked = true;
+        return gender;
+    }
     handleSubmit(userinfo) {
         return (e) => {
             e.preventDefault();
             this.props.signup(userinfo);
             <Redirect to="/" />
+        }
+    }
+
+    createFakeVals(){
+        return {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            email: faker.internet.email(),
+            password: faker.internet.password(),
+            birthday: this.parseDate(),
+            gender: this.getRandomGender()
+        }
+    }
+
+    setStateWithFakeInput(fakeVals){
+        this.setState(fakeVals)
+    }
+
+    setInput(fakeVals){
+        document.getElementById("f-name").value = fakeVals.firstname
+        document.getElementById("l-name").value = fakeVals.lastname
+        document.getElementById("email").value = fakeVals.email
+        document.getElementById("passcode").value = fakeVals.password
+        document.getElementById("birthday").value = fakeVals.birthday
+
+    }
+
+    create(){
+        return ()=>{
+            let fakeVals = this.createFakeVals();
+            this.setStateWithFakeInput(fakeVals);
+            this.setInput(fakeVals)
         }
     }
     
@@ -45,16 +92,16 @@ class SignUpForm extends React.Component {
                 <h3>it's free and always will be</h3>
                 <div className="errors"> <ul> {this.handleErrors()} </ul> </div>
                 <div className="f-l-name">
-                    <input type="text" onChange={this.handleInput("firstname")} placeholder="First name"/> <br/>
+                    <input type="text" onChange={this.handleInput("firstname")} placeholder="First name" id="f-name"/> <br/>
                     {/* {this.handleErrors("Firstname")} */}
-                    <input type="text" onChange={this.handleInput("lastname")} placeholder="Last name"/>
+                    <input type="text" onChange={this.handleInput("lastname")} placeholder="Last name" id="l-name"/>
                 </div>
-                <input type="text" onChange={this.handleInput("email")} placeholder="Email" />
-                <input type="password" onChange={this.handleInput("password")} placeholder="Password"/>
+                <input type="text" onChange={this.handleInput("email")} placeholder="Email" id="email"/>
+                <input type="password" onChange={this.handleInput("password")} placeholder="Password" id="passcode"/>
                 <br/>
                 <label>
                     Birthday <br/>
-                    <input type="date" onChange={this.handleInput("birthday")} />
+                    <input type="date" id="birthday" onChange={this.handleInput("birthday")} />
                 </label>
                 <div>
                     <label>
@@ -76,7 +123,11 @@ class SignUpForm extends React.Component {
                 <button 
                     className="signup-btn"
                     onClick={this.handleSubmit(this.state)}
-                    >Sign up</button>
+                >Sign up</button>
+                <button 
+                    className="fake-user-btn signup-btn"
+                    onClick={this.create()}
+                >Create fake Info</button>
             </div>
         );
     }

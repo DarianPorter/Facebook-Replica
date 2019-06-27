@@ -41,7 +41,7 @@ class ProfilePostForm extends React.Component{
         return(
             <div className="profile-post-form">
                 <div className="profile-post-form-header">
-                    <p>create post</p>
+                    <p><i class="fas fa-pencil-alt"></i>Create post</p>
                 </div>
                 <div className="profile-post-form-content">
                     <textarea 

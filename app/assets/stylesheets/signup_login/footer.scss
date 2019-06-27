@@ -11,12 +11,14 @@
     width: 1000px;   
 }
 .lan{
+    width: fit-content;
+    height: fit-content;
     display: flex;
     margin: auto;
 }
 .lan ul{
     display: flex;
-    width: 20px;
+    width: 800px;
     padding-top: 8px;
     flex-direction: row;
 }
