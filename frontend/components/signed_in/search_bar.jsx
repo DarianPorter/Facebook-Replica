@@ -77,7 +77,7 @@ class SearchBar extends React.Component{
 
                             </div>
                             <div className="home-btn">
-                                <p> Home </p>
+                                <p onClick={this.renderProfile("/")}> Home </p>
                             </div>
                             <div className="logout" onClick={this.logout}>
                                 <p> Logout </p>

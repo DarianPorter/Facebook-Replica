@@ -1,6 +1,7 @@
 import React from 'react';
 import PostForm from './post_form';
 import PostIndex from './posts_index';
+import NFLeftSec from './left_news_feed_sec'
 
 class NewsFeed extends React.Component{
     constructor(props){
@@ -12,7 +13,7 @@ class NewsFeed extends React.Component{
                 <div className="news-feed">   
                     <div className="n-f-content">
                         <div className="options-sec">
-                            
+                            <NFLeftSec />
                         </div>
                         <div className="post-sec">
                             <PostForm />

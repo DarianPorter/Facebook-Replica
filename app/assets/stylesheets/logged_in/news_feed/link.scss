@@ -1,0 +1,21 @@
+.link{
+    display: flex;
+    height: 40px;
+    width: 87%;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+.link:hover{
+    cursor: pointer;
+    background: #f2f3f5;
+}
+.link img{
+    height: 38px;
+    width: 38px;
+    border-radius: 100%;
+    padding-right: 10px;
+}
+.link p{
+    padding-top: 10px;
+}

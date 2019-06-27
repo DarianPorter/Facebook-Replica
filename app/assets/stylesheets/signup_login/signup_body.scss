@@ -2,7 +2,7 @@
     background: #edf0f5;
     width: 1000px;
     margin: auto;
-    height: 570px;
+    height: fit-content;
     display: flex;
     padding: 20px;
 }
@@ -50,7 +50,7 @@
     display: inline-block;
     width: 40%;
     background-color: inherit;
-    height: 100%;
+    height: fit-content;
 }
 
 .signup-form h1{
