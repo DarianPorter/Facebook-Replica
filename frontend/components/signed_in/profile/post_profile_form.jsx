@@ -6,6 +6,7 @@ import { createPost } from '../../../actions/post_actions'
 const msp = (state)=>{
     return({
         user_id: state.session.id,  
+        users:  state.entities.users,
     })
 }
 
@@ -26,8 +27,10 @@ class ProfilePostForm extends React.Component{
     }
     submitForm(postInfo){
         return()=>{
-            document.getElementById("pfp_input").value = ""
-            this.props.createPost(postInfo)
+            if (document.getElementById("pfp_input").value !== ""){
+                document.getElementById("pfp_input").value = ""
+                this.props.createPost(postInfo)
+            }
         }
     }
     handleInput(){
@@ -41,18 +44,18 @@ class ProfilePostForm extends React.Component{
         return(
             <div className="profile-post-form">
                 <div className="profile-post-form-header">
-                    <p><i class="fas fa-pencil-alt"></i>Create post</p>
+                    <p><i className="fas fa-pencil-alt"></i>Create post</p>
                 </div>
                 <div className="profile-post-form-content">
                     <textarea 
                         onChange={this.handleInput()}
-                        placeholder={`Write something to ...`}
+                        placeholder={`Write something to ${this.props.users[this.props.match.params.user_id].firstname}...`}
                         id="pfp_input"
                     >
                     </textarea>
                 </div>
                 <div className="profile-post-form-footer">
-                    <button onClick={this.submitForm(this.state)}> Share </button>
+                    <button onClick={this.submitForm(this.state)}> Post </button>
                 </div>
             </div>
         );
