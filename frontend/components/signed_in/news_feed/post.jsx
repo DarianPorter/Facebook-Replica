@@ -1,4 +1,5 @@
 import React from 'react'
+import PostComment from './post_comment'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
@@ -23,11 +24,16 @@ class Post extends React.Component{
 
     goToUserPage(){
         this.props.history.push(`/users/${this.props.post.user_id}`)
-    
     }
 
-    fetchAuthor(){
-
+    comments(){
+        if(this.props.post.comments){
+            return Object.keys(this.props.post.comments).map((key, i)=>{
+                return <PostComment key={i} comment={this.props.post.comments[key]} />
+            })
+        }else{
+            return null
+        }
     }
 
     render(){
@@ -65,7 +71,7 @@ class Post extends React.Component{
                     <p><i className="far fa-thumbs-up"></i>like</p> <p> <i className="far fa-comment"></i> comment</p> <p> <i className="fas fa-share"></i> share</p>
                 </div>
                 <div className="post-comments">
-
+                    {this.comments()}
                 </div>
                 <div className="post-create-comment">
                     <img
@@ -75,6 +81,7 @@ class Post extends React.Component{
                     <input
                         type="text"
                         placeholder="Write a comment..."
+                        onKeyDown={(e)=>{if(e.keyCode === 13){console.log("post comment")}}}
                     />
                 </div>
             </div>

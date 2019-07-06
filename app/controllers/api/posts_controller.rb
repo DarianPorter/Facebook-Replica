@@ -35,7 +35,6 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy 
-        # watch///////
         @post = Post.find(params[:id])
         @post.destroy
         render "api/posts/show"

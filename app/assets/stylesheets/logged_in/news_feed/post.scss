@@ -48,13 +48,13 @@
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
-    padding-top: 10px;
-    border-top: #dddfe2 solid 1px;
+    padding: 8px 12px;
 }
 .post-create-comment img{
     width: 32px;
     height: 32px;
     border-radius: 32px;
+    margin-right: 6px;
 }
 .post-create-comment input{
     width: 452px;
