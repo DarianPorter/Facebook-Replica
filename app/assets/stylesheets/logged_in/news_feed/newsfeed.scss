@@ -1,17 +1,17 @@
 .news-feed{
-    width: 1000px;
     margin: auto;
     padding-top: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 .n-f-content{
     display: flex;
-    margin-top: 38px;
+    padding-top: 35px;
     background: #e9ebee;
+    width: 1000px;
 }
 .options-sec{
-    // background: white;
-    // border: 1px solid #d3d5db;
     padding-top: 10px;
     border-radius: 5px;
     width: 200px;

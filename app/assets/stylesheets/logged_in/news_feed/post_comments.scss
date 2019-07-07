@@ -1,6 +1,7 @@
 .post-comments{
     border-top: #dddfe2 solid 1px;
     max-height: 350px;
+    overflow: scroll;
 }
 .comment{
     display: flex;

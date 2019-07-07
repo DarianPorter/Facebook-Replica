@@ -2,16 +2,17 @@ import React from 'react'
 import PostComment from './post_comment'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { commentCreator } from '../../../actions/comment_actions'
 
 const msp = (state)=>{
     return{
-        
+        user_id: state.session.id,
     }
 }
 
 const mdp = (dispatch) => {
     return ({
-
+        createComment: (commentInfo) => { return dispatch(commentCreator(commentInfo))},
     })
 }
 
@@ -35,7 +36,16 @@ class Post extends React.Component{
             return null
         }
     }
-
+    makeComment(e){
+        e.preventDefault()
+        let postInfo = {
+            body: e.currentTarget.value,
+            user_id: this.props.user_id,
+            post_id: this.props.post.id
+        }
+        this.props.createComment(postInfo)
+        e.currentTarget.value = ""
+    }
     render(){
         const that = this;
         let deleteButton = this.props.currentUserId === this.props.post.user_id ?(
@@ -81,7 +91,7 @@ class Post extends React.Component{
                     <input
                         type="text"
                         placeholder="Write a comment..."
-                        onKeyDown={(e)=>{if(e.keyCode === 13){console.log("post comment")}}}
+                        onKeyDown={(e)=>{if(e.keyCode === 13){this.makeComment(e)}}}
                     />
                 </div>
             </div>

@@ -6,10 +6,17 @@ import {
     FETCH_POSTS,
     FETCH_USERS_POSTS,
 } from '../actions/post_actions'
-//watch!!!
-const postReducer = (state= {}, action) =>{
+import {
+    CREATE_COMMENT,
+} from '../actions/comment_actions'
+const postReducer = (state = {}, action) =>{
     Object.freeze(state)
     switch(action.type){
+        case CREATE_COMMENT:
+            let mergedComments = merge({},state[action.comment.post_id].comments,{[action.comment.id]: action.comment});
+            let post = state[action.comment.post_id]
+            post.comments = mergedComments
+            return merge({}, state, {[action.comment.post_id]: post})
         case RECIEVE_NEW_POST:
             return merge({},state,{
                 [action.post.id]: action.post

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import { Redirect, withRouter} from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
 import { logoutUser } from "../../actions/user_actions";
 
 const msp = (state, ownProps)=>{
@@ -33,11 +33,10 @@ class SearchBar extends React.Component{
             this.setState({[type]: e.target.value })
         }
     }
-    
+    // whole diffrent problem
     renderProfile(link){
         return ()=>{
             if (this.props.history.location.pathname !== link){
-                console.log(this.props.history)
                 this.props.history.push(link);
             }
         }
