@@ -16,11 +16,11 @@ class PostComment extends React.Component{
                 />
                 <div>
                     <div className="author-comment">
-                        <Link 
+                        <p> <Link 
                             to={`users/${this.props.comment.user_id}`}
                             className="author-name"
                         >{this.props.comment.firstname + " " + this.props.comment.lastname}</Link>
-                        <p>{this.props.comment.body}</p>
+                            {this.props.comment.body}</p>
                     </div>
                     <div className="comment-actions">
                         <p>Like</p> <p> · </p> <p> Reply </p> <p> · </p> <p> {this.props.comment.date} </p>
