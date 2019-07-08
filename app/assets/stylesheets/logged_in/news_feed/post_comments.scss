@@ -17,7 +17,7 @@
     margin-left: 10px;
     margin-bottom: 3px;
     padding-top: 3px;
-    width: 150px;
+    width: 100px;
     justify-content: space-around;
 }
 .author-image{
@@ -44,4 +44,10 @@
 .author-name:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+.like{
+    color: #4267b2;
+}
+.like:hover{
+    text-decoration: underline;
 }
