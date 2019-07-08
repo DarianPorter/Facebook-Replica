@@ -10,4 +10,8 @@ class Comment < ApplicationRecord
     def like_count
         return self.likes.length
     end
+
+    def date
+        return self.created_at.strftime("%B %d, %Y")
+    end
 end

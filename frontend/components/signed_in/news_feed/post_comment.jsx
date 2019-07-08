@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class PostComment extends React.Component{
     constructor(props){
         super(props)
     }
+    
     render(){
-
         return (
             <div className="comment">
                 <img 
@@ -15,10 +16,14 @@ class PostComment extends React.Component{
                 />
                 <div>
                     <div className="author-comment">
-                        <p></p>{this.props.comment.body}
+                        <Link 
+                            to={`users/${this.props.comment.user_id}`}
+                            className="author-name"
+                        >{this.props.comment.firstname + " " + this.props.comment.lastname}</Link>
+                        <p>{this.props.comment.body}</p>
                     </div>
                     <div className="comment-actions">
-                        <p>Like</p> <p> · </p> <p> Reply </p> <p> · </p> <p> 6m </p>
+                        <p>Like</p> <p> · </p> <p> Reply </p> <p> · </p> <p> {this.props.comment.date} </p>
                     </div>
                 </div>
             </div>
