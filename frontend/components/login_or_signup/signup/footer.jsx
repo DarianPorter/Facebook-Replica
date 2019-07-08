@@ -23,7 +23,18 @@ export default ()=>{
 
                 </div>
                 <div className="ui-list">   
-
+                    <i className="fab fa-github" onClick={() => {
+                        window.open("https://github.com/DarianPorter" ,'_blank').focus();}}>
+                    </i>
+                    <i className="fab fa-angellist" onClick={() => {
+                        window.open("https://angel.co/darian-baptiste?public_profile=1", '_blank').focus();}}>
+                    </i>
+                    <i className="fab fa-linkedin" onClick={() => {
+                        window.open("https://www.linkedin.com/in/darian-baptiste-09a8aa189/", '_blank').focus();}}>
+                    </i>
+                    <i class="fas fa-globe" onClick={() => {
+                        window.open("https://darianporter.github.io/", '_blank').focus();}}>
+                    </i>
                 </div>
             </div>
         </div>

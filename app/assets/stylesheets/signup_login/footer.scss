@@ -12,18 +12,19 @@
 }
 .lan{
     width: fit-content;
-    height: fit-content;
     display: flex;
-    margin: auto;
+    flex-wrap: wrap;
 }
 .lan ul{
+    flex-wrap: wrap;
     display: flex;
-    width: 800px;
-    padding-top: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     flex-direction: row;
 }
 .lan li{
-    padding-left: 10px;
+    font-size: 12px;
+    padding-left: 14px;
     display: flex;
     color: #385898;
     writing-mode: horizontal-tb;
@@ -35,6 +36,18 @@
 .seperator{
     border-top: 1px #dddfe2 solid;
 }
-.ui-list{
 
+.ui-list{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: grey;
+}
+.ui-list i{
+    font-size: 90px;
+    margin-right: 60px;
+}
+.ui-list i:hover{
+    cursor: pointer;
+    color: #4267b2;
 }

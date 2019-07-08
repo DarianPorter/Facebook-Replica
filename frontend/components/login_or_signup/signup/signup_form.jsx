@@ -100,10 +100,11 @@ class SignUpForm extends React.Component {
                 <input type="password" onChange={this.handleInput("password")} placeholder="Password" id="passcode"/>
                 <br/>
                 <label>
-                    Birthday <br/>
+                    <p className="label">Birthday </p>
                     <input type="date" id="birthday" onChange={this.handleInput("birthday")} />
                 </label>
                 <div>
+                    <p className="label">Gender</p>
                     <label>
                         Male
                         <input id="male" type="radio" name="gender" value="male" onChange={this.handleInput("gender")}/>
@@ -128,6 +129,8 @@ class SignUpForm extends React.Component {
                     className="fake-user-btn signup-btn"
                     onClick={this.create()}
                 >Create fake Info</button>
+                <div className="seperator"></div>
+                <p>Create a Page for a celebrity, band or business.</p>
             </div>
         );
     }

@@ -23,7 +23,7 @@ class PostComment extends React.Component{
                             {this.props.comment.body}</p>
                     </div>
                     <div className="comment-actions">
-                        <p>Like</p> <p> · </p> <p> Reply </p> <p> · </p> <p> {this.props.comment.date} </p>
+                        <p>Like</p> <p> · </p> <p> {this.props.comment.date} </p>
                     </div>
                 </div>
             </div>

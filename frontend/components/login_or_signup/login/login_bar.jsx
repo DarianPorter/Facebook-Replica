@@ -36,8 +36,7 @@ class SignInForm extends React.Component {
                     <div >
                         <form className="sign-in-form"> 
                             <label className="input">
-                                Email
-                                <br/>
+                                <p>Email</p>
                                 <input 
                                     type="text"
                                     value={this.state.email}
@@ -46,8 +45,7 @@ class SignInForm extends React.Component {
                             </label>
                             <br/>
                             <label className="input">
-                                Password
-                                <br/>
+                                <p>Password</p> 
                                 <input 
                                     type="password"
                                     value={this.state.password}
