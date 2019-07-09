@@ -7,6 +7,7 @@ class PostComment extends React.Component{
     }
     
     render(){
+        debugger
         return (
             <div className="comment">
                 <Link to={`users/${this.props.comment.user_id}`}>
@@ -19,7 +20,7 @@ class PostComment extends React.Component{
                 <div>
                     <div className="author-comment">
                         <p> <Link 
-                            to={`users/${this.props.comment.user_id}`}
+                            to={`/users/${this.props.comment.user_id}`}
                             className="author-name"
                         >{this.props.comment.firstname + " " + this.props.comment.lastname}</Link>
                             {this.props.comment.body}</p>

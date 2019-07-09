@@ -5,11 +5,11 @@ class Api::PostsController < ApplicationController
         # @posts = ActiveRecord::Base.connection.execute(sql).values
         
         if params[:user_id]
-            @posts = User.find(params[:receiver_id]).posts
+            @posts = User.find(params[:receiver_id]).posts.includes(:user, :likes, comments: [:likes, :user])
             render "api/posts/index.json.jbuilder" 
 
         else
-            @posts = Post.all.includes(:user)
+            @posts = Post.all.includes(:user, :likes, comments: [:likes, :user] )
             render "api/posts/index.json.jbuilder" 
         end
     end

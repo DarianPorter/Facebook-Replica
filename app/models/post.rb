@@ -10,8 +10,4 @@ class Post < ApplicationRecord
     def date 
         return self.created_at.strftime("%B %d, %Y")
     end
-
-    def like_count
-        return self.likes.count
-    end
 end

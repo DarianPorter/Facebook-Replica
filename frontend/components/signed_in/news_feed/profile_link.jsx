@@ -20,6 +20,7 @@ class ProfileLink extends React.Component{
     }
     userPage(){
         return ()=>{
+            window.scrollTo(0, 0)
             this.props.history.push(`users/${this.props.user_id}`)
         }
     }

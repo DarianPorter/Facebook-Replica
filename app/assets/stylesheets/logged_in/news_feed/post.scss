@@ -104,3 +104,13 @@
 .time:hover{
     text-decoration: underline;
 }
+
+.post-likes-comments{
+    display: flex;
+    justify-content: space-between;
+    color: #606770;
+    font-size: 13px;
+}
+.post-likes-comments p{
+    padding: 10px 12px;
+}

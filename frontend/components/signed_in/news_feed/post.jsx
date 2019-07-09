@@ -24,7 +24,9 @@ class Post extends React.Component{
     }
 
     goToUserPage(){
+        window.scrollTo(0, 0)
         this.props.history.push(`/users/${this.props.post.user_id}`)
+
     }
 
     comments(){
@@ -35,6 +37,9 @@ class Post extends React.Component{
         }else{
             return null
         }
+    }
+    startComment(){
+        document.getElementById("comment-input").focus()
     }
     makeComment(e){
         e.preventDefault()
@@ -57,6 +62,19 @@ class Post extends React.Component{
                 ) : (
             null
         )
+
+        let likes = this.props.post.likes ? (
+            <p> {Object.keys(this.props.post.likes).length + " Likes"} </p>
+        ) : (
+            null
+        )
+
+        let comments = this.props.post.comments ? (
+            <p> {Object.keys(this.props.post.comments).length + " Comments"} </p>
+        ) : (
+            null
+        )
+
         return (
             <div className="post-item">
                 <div className="post-info">
@@ -77,8 +95,13 @@ class Post extends React.Component{
                 <div className="post-body">
                     <p>{this.props.post.body}</p>
                 </div>
+                <div className="post-likes-comments">
+                    {likes} {comments}
+                </div>
                 <div className="post-actions">
-                    <p><i className="far fa-thumbs-up"></i>like</p> <p> <i className="far fa-comment"></i> comment</p> <p> <i className="fas fa-share"></i> share</p>
+                    <p><i className="far fa-thumbs-up"></i>Like</p> 
+                    <p onClick={this.startComment}> <i className="far fa-comment"></i> Comment</p>
+                    <p> <i className="fas fa-share"></i> Share</p>
                 </div>
                 <div className="post-comments">
                     {this.comments()}
@@ -91,6 +114,7 @@ class Post extends React.Component{
                     <input
                         type="text"
                         placeholder="Write a comment..."
+                        id="comment-input"
                         onKeyDown={(e)=>{if(e.keyCode === 13){this.makeComment(e)}}}
                     />
                 </div>

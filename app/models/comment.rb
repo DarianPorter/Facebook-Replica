@@ -7,10 +7,6 @@ class Comment < ApplicationRecord
 
     has_many :likes, foreign_key: :likeable_id, class_name: :Like
 
-    def like_count
-        return self.likes.length
-    end
-
     def date
         return self.created_at.strftime("%B %d, %Y")
     end
