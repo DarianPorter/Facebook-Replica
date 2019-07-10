@@ -35,6 +35,9 @@ class SearchBar extends React.Component{
     }
     renderProfile(link){
         return ()=>{
+            if (link != "/" ) {
+                window.scrollTo(0, 0)
+            }
             this.props.history.push(link);
         }
     }

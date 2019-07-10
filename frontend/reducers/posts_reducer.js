@@ -6,12 +6,24 @@ import {
     FETCH_POSTS,
     FETCH_USERS_POSTS,
 } from '../actions/post_actions'
+
 import {
     CREATE_COMMENT,
 } from '../actions/comment_actions'
+
+import {
+    LIKE_COMMENT,
+    LIKE_POST,
+} from '../actions/like_actions'
+
+
 const postReducer = (state = {}, action) =>{
     Object.freeze(state)
     switch(action.type){
+        // case LIKE_COMMENT:
+        case LIKE_POST:
+            debugger
+            // debugger get action.like.likeable_id key into post add like to post 
         case CREATE_COMMENT:
             let mergedComments = merge({},state[action.comment.post_id].comments,{[action.comment.id]: action.comment});
             let post = state[action.comment.post_id]

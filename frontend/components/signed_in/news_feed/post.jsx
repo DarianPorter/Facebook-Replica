@@ -26,7 +26,6 @@ class Post extends React.Component{
     goToUserPage(){
         window.scrollTo(0, 0)
         this.props.history.push(`/users/${this.props.post.user_id}`)
-
     }
 
     comments(){
