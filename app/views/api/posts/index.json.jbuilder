@@ -16,7 +16,8 @@
         json.set! :likes do 
             post.likes.each do |like|
                 json.set! like.id do 
-                    json.extract! like.user, :id, :firstname, :lastname
+                    json.extract! like, :id, :user_id, :likeable_type, :likeable_id
+                    json.extract! like.user, :firstname, :lastname
                 end
             end
         end 

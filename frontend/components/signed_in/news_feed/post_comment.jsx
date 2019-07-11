@@ -7,7 +7,6 @@ class PostComment extends React.Component{
     }
     
     render(){
-        debugger
         return (
             <div className="comment">
                 <Link to={`users/${this.props.comment.user_id}`}>

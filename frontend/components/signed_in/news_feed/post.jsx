@@ -3,6 +3,7 @@ import PostComment from './post_comment'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { commentCreator } from '../../../actions/comment_actions'
+import { likePost } from '../../../actions/like_actions'
 
 const msp = (state)=>{
     return{
@@ -13,6 +14,7 @@ const msp = (state)=>{
 const mdp = (dispatch) => {
     return ({
         createComment: (commentInfo) => { return dispatch(commentCreator(commentInfo))},
+        likePost: (likeInfo)=>{return dispatch(likePost(likeInfo))}
     })
 }
 
@@ -21,8 +23,16 @@ class Post extends React.Component{
         super(props)
         this.delete = this.props.delete.bind(this);
         this.goToUserPage = this.goToUserPage.bind(this);
+        this.likePost = this.likePost.bind(this)
+        this.state = {
+            liked: false 
+        }
     }
-
+    componentDidMount(){
+        if (this.props.post.likes !== undefined){
+            this.isLiked(this.props.post.likes)
+        }
+    }
     goToUserPage(){
         window.scrollTo(0, 0)
         this.props.history.push(`/users/${this.props.post.user_id}`)
@@ -40,6 +50,7 @@ class Post extends React.Component{
     startComment(){
         document.getElementById("comment-input").focus()
     }
+
     makeComment(e){
         e.preventDefault()
         let postInfo = {
@@ -50,8 +61,41 @@ class Post extends React.Component{
         this.props.createComment(postInfo)
         e.currentTarget.value = ""
     }
+
+    isLiked(likes){
+        let keys = Object.keys(likes);
+        for(let i = 0; i < keys.length; i++){
+            if (likes[keys[i]].user_id === this.props.user_id) {
+                this.setState({ liked: true });
+                return true
+            }
+        }
+        return false
+    }
+
+    likePost(e){
+        let likeInfo={
+            likeable_type: "Post",
+            user_id: this.props.user_id,
+            likeable_id: this.props.post.id
+        };
+        
+        if (this.props.post.likes === undefined){
+            this.props.likePost(likeInfo);
+            e.currentTarget.getElementsByTagName("i")[0].classList.add("liked");
+        
+        }else{
+            if(this.isLiked(this.props.post.likes) === false){
+                this.props.likePost(likeInfo)
+
+                e.currentTarget.getElementsByTagName("i")[0].classList.remove("far");
+                e.currentTarget.getElementsByTagName("i")[0].classList.add("liked", "fas");
+            }
+        } 
+    }
     render(){
         const that = this;
+
         let deleteButton = this.props.currentUserId === this.props.post.user_id ?(
             <p
                 className="delete"
@@ -60,6 +104,12 @@ class Post extends React.Component{
             > Delete</p>
                 ) : (
             null
+        )
+
+        let likeAction = this.state.liked == true ? (
+            <p onClick={this.likePost}><i className="fas fa-thumbs-up liked"></i>Like</p>
+        ) : (
+            <p onClick={this.likePost}><i className="far fa-thumbs-up"></i>Like</p>
         )
 
         let likes = this.props.post.likes ? (
@@ -73,6 +123,7 @@ class Post extends React.Component{
         ) : (
             null
         )
+
 
         return (
             <div className="post-item">
@@ -98,7 +149,7 @@ class Post extends React.Component{
                     {likes} {comments}
                 </div>
                 <div className="post-actions">
-                    <p><i className="far fa-thumbs-up"></i>Like</p> 
+                    {likeAction}
                     <p onClick={this.startComment}> <i className="far fa-comment"></i> Comment</p>
                     <p> <i className="fas fa-share"></i> Share</p>
                 </div>

@@ -1,14 +1,14 @@
 export const likingComment = (likeData)=>{
-    $.ajax({
+    return $.ajax({
         method: "POST",
         url: `/api/posts/${likeData.likeable_id}/likes`,
         data: {like: likeData}
     })
 }
-export const likingPost = (postId, likeData)=>{
-    $.ajax({
+export const likingPost = (likeData)=>{
+    return $.ajax({
         method: "POST",
-        url: `/api/comments/${postId}/likes`,
+        url: `/api/comments/${likeData.likeable_id}/likes`,
         data: {like: likeData}
     })
 }

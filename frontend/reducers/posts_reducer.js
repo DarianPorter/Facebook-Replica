@@ -23,7 +23,10 @@ const postReducer = (state = {}, action) =>{
         // case LIKE_COMMENT:
         case LIKE_POST:
             debugger
-            // debugger get action.like.likeable_id key into post add like to post 
+            let mergedLikes = merge({}, state[action.like.likeable_id].likes, {[action.like.likeable_id]: action.like})
+            let likePost = state[action.like.likeable_id]
+            likePost.likes = mergedLikes
+            return merge({}, state, { [action.like.likeable_id]: likePost } )
         case CREATE_COMMENT:
             let mergedComments = merge({},state[action.comment.post_id].comments,{[action.comment.id]: action.comment});
             let post = state[action.comment.post_id]
