@@ -43,6 +43,7 @@ class PostForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.submitPost(this.state);
+        this.setState({body: ""});
         document.getElementById("input").value = ""
     }
 

@@ -31,10 +31,38 @@
 
 .adds-sec{
     width: 300px;
-    height: 500px;
     background: white;
     border: 1px solid #d3d5db;
     border-radius: 5px;   
     position: fixed;
+    display: flex;
+    flex-direction: column;
     margin-left: 718px;
+}
+
+.adds-sec div{
+    font-size: 13px;
+    color: #616770;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.adds-sec img:hover{
+    cursor: pointer;
+
+}
+
+.adds-sec p:last-child{
+    text-decoration: underline;
+    color: #3578E5;
+}
+.adds-sec p:hover{
+    cursor: pointer;
+}
+
+.adds-sec img{
+    width: 90%;
+    height: 80%;
+    padding-bottom: 10px;
+    margin: auto; 
 }

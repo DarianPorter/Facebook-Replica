@@ -20,7 +20,14 @@ class NewsFeed extends React.Component{
                             <PostIndex usersPage={false}/>
                         </div>
                         <div className="adds-sec">
-
+                            <div>
+                                <p>Sponsored</p> <p>Create Ad</p>
+                            </div>
+                            <img 
+                                src={window.fake_add} 
+                                alt="add"
+                                onClick={() => { window.open("https://darianporter.github.io/", '_blank').focus();}}
+                            />
                         </div>
                     </div>
                 </div>

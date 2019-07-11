@@ -49,7 +49,7 @@ class _PostIndex extends React.Component{
     render(){
         return(
             <div className="posts_index">
-                {this.props.posts.reverse().map((post, i)=>{
+                {this.props.posts.map((post, i)=>{
                     if(this.props.match.params.user_id == undefined){
                         return (
                             this.constructPost(post, i)
@@ -61,7 +61,7 @@ class _PostIndex extends React.Component{
                             )
                         }
                     }
-                })}
+                }).reverse()}
             </div>
         )
     }
