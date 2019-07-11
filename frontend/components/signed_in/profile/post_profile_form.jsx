@@ -26,11 +26,9 @@ class ProfilePostForm extends React.Component{
         this.submitForm = this.submitForm.bind(this);
     }
     submitForm(postInfo){
-        return()=>{
-            if (document.getElementById("pfp_input").value !== ""){
-                document.getElementById("pfp_input").value = ""
-                this.props.createPost(postInfo)
-            }
+        if (document.getElementById("pfp_input").value !== ""){
+            document.getElementById("pfp_input").value = ""
+            this.props.createPost(postInfo)
         }
     }
     handleInput(){
@@ -40,7 +38,11 @@ class ProfilePostForm extends React.Component{
     }
 
     render(){
-        // add pencil 
+        let placehold = this.props.user_id == this.props.match.params.user_id ? (
+            "Whats on your mind?"
+        ) : (
+            `Write something to ${this.props.users[this.props.match.params.user_id].firstname}...`
+        )
         return(
             <div className="profile-post-form">
                 <div className="profile-post-form-header">
@@ -49,13 +51,19 @@ class ProfilePostForm extends React.Component{
                 <div className="profile-post-form-content">
                     <textarea 
                         onChange={this.handleInput()}
-                        placeholder={`Write something to ${this.props.users[this.props.match.params.user_id].firstname}...`}
+                        placeholder={placehold}
                         id="pfp_input"
+                        onKeyDown={(e) => {
+                            if (e.keyCode === 13) {
+                                e.preventDefault
+                                this.submitForm(this.state) 
+                            } 
+                        }}
                     >
                     </textarea>
                 </div>
                 <div className="profile-post-form-footer">
-                    <button onClick={this.submitForm(this.state)}> Post </button>
+                    <button onClick={()=>{ return this.submitForm(this.state)}}> Post </button>
                 </div>
             </div>
         );

@@ -50,6 +50,7 @@
     border-radius: 3px;
 }
 .nav-btn{
+    font-size: 12px;
     width: 250px;
     display: flex;
     justify-content: space-around;
@@ -68,8 +69,13 @@
 }
 .nav-btn p{
     padding: 5px;
+    padding-top: 7px;
 }
 .profile-btn img{
     padding-top: 2px;
+
+}
+.profile-btn p{
+    padding-top: 7px;
 
 }

@@ -22,7 +22,6 @@ const postReducer = (state = {}, action) =>{
     switch(action.type){
         // case LIKE_COMMENT:
         case LIKE_POST:
-            debugger
             let mergedLikes = merge({}, state[action.like.likeable_id].likes, {[action.like.likeable_id]: action.like})
             let likePost = state[action.like.likeable_id]
             likePost.likes = mergedLikes

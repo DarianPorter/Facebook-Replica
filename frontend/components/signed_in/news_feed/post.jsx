@@ -29,7 +29,6 @@ class Post extends React.Component{
         }
     }
     componentDidMount(){
-        debugger
         if (this.props.post.likes !== undefined){
 
             this.isLiked(this.props.post.likes)
@@ -68,7 +67,6 @@ class Post extends React.Component{
         let keys = Object.keys(likes);
         for(let i = 0; i < keys.length; i++){
             if (likes[keys[i]].user_id === this.props.user_id) {
-                debugger
                 this.setState({ liked: true });
                 return true
             }
@@ -109,23 +107,25 @@ class Post extends React.Component{
                 ) : (
             null
         )
-        if (this.state.liked === true){
-            debugger
-        }
+   
         let likeAction = this.state.liked === true ? (
             <p onClick={this.likePost}><i className="fas fa-thumbs-up liked"></i>Like</p>
         ) : (
             <p onClick={this.likePost}><i className="far fa-thumbs-up"></i>Like</p>
         )
-
-        let likes = this.props.post.likes ? (
+        debugger
+        let likes = this.props.post.likes ? Object.keys(this.props.post.likes).length > 0 ? (
             <p> {Object.keys(this.props.post.likes).length + " Likes"} </p>
+        ) : (
+            null
         ) : (
             null
         )
 
-        let comments = this.props.post.comments ? (
+        let comments = this.props.post.comments ? Object.keys(this.props.post.comments).length > 0 ? (
             <p> {Object.keys(this.props.post.comments).length + " Comments"} </p>
+        ) : (
+            null
         ) : (
             null
         )
