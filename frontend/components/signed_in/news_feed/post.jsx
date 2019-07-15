@@ -113,7 +113,7 @@ class Post extends React.Component{
         ) : (
             <p onClick={this.likePost}><i className="far fa-thumbs-up"></i>Like</p>
         )
-        debugger
+        
         let likes = this.props.post.likes ? Object.keys(this.props.post.likes).length > 0 ? (
             <p> {Object.keys(this.props.post.likes).length + " Likes"} </p>
         ) : (

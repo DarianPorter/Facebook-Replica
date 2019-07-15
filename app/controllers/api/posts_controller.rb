@@ -24,7 +24,6 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        # display model with the posts info in a form with 
         @post = Post.find(params[:id])
         if @post.update
             render 'api/post/show'
@@ -36,6 +35,8 @@ class Api::PostsController < ApplicationController
 
     def destroy 
         @post = Post.find(params[:id])
+        @post.likes.destroy
+        @post.comments.destroy
         @post.destroy
         render "api/posts/show"
     end

@@ -51,10 +51,12 @@
     cursor: pointer;
 
 }
-
 .adds-sec p:last-child{
+    color: #4267b2;
+}
+.adds-sec p:last-child:hover{
     text-decoration: underline;
-    color: #3578E5;
+    color: #4267b2;
 }
 .adds-sec p:hover{
     cursor: pointer;

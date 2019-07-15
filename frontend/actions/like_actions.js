@@ -1,6 +1,7 @@
 import * as ApiUtil from "../util/likes_util";
 export const LIKE_COMMENT = "LIKE_COMMENT"
 export const LIKE_POST = "LIKE_POST";
+export const DELETE_LIKE = "DELETE_LIKE"
 export const RECIEVE_LIKE_ERRORS = "RECIEVE_LIKE_ERRORS";
 
 const LikeErrors = (errors) => {
@@ -19,6 +20,12 @@ const createCommentLike = (likeInfo)=>{
 const createPostLike = (likeInfo)=>{
     return({
         type: LIKE_POST,
+        like: likeInfo
+    })
+}
+const createDeleteLike = (likeInfo)=>{
+    return ({
+        type: DELETE_LIKE,
         like: likeInfo
     })
 }
@@ -45,5 +52,17 @@ export const likePost = (likeData) =>{
                 return dispatch(LikeErrors(response))
             }
         );
+    }
+}
+
+export const deleteLike = (likeData) => {
+    return(dispatch)=>{
+        return ApiUtil.deleteLike(likeData).then(
+            (payload)=>{
+                return dispatch(createDeleteLike(payload))
+            },(response)=>{
+                return dispatch(LikeErrors(response))
+            }
+        )
     }
 }
