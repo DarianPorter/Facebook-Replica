@@ -3,6 +3,7 @@ import {
     RECIEVE_CURRENT_USER,
     RECIEVE_NEW_USER,
     FETCH_FRIENDS,
+    FIND_USER,
 } from "../actions/user_actions"
 
 const usersReducer =(state= {}, action)=>{
@@ -17,6 +18,8 @@ const usersReducer =(state= {}, action)=>{
             })
         case FETCH_FRIENDS:
             return merge({}, state, action.friends)
+        case FIND_USER:
+            return merge({},state,{[action.user.id]: action.user})
         default:
             return state;
     }

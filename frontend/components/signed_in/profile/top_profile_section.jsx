@@ -1,27 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
-import { findPerson} from '../../../actions/user_actions'
-
-const msp =(state, ownProps)=>{
-    return({
-        user: state.entities.users[ownProps.match.params.user_id]
-    })
-}
-
-const mdp =(dispatch)=>{
-    return({
-        userInfo: (id)=>{return dispatch(findPerson(id))}
-    })
-}
 
 class TopProfileSection extends React.Component{
     constructor(props){
         super(props)
-    }
-
-    componentDidMount(){
-        this.props.userInfo(this.props.match.params.user_id)
     }
 
     render(){
@@ -52,4 +33,4 @@ class TopProfileSection extends React.Component{
     }
 }
 
-export default withRouter(connect(msp,mdp)(TopProfileSection));
+export default TopProfileSection;

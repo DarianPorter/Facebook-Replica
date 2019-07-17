@@ -1,9 +1,5 @@
 class Api::PostsController < ApplicationController
-    def index
-        # currentuser.friends.posts
-        # sql = "SELECT * FROM posts JOIN users ON users.id = posts.user_id ORDER BY posts.created_at DESC "
-        # @posts = ActiveRecord::Base.connection.execute(sql).values
-        
+    def index        
         if params[:user_id]
             @posts = User.find(params[:receiver_id]).posts.includes(:user, likes: [:user], comments: [:likes, :user])
             render "api/posts/index.json.jbuilder" 
