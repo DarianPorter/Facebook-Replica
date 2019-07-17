@@ -61,7 +61,7 @@ class PostForm extends React.Component{
                     <textarea 
                         className="form-input" 
                         onChange={this.handleInput} 
-                        onKeyDown={(e) => { if (e.keyCode === 13) { this.handleSubmit(e)}}}
+                        onKeyDown={(e) => { if (e.keyCode === 13 && e.currentTarget.value) {this.handleSubmit(e)}}}
                         placeholder={`Whats on your mind, ${this.props.firstname}?`}
                         id="input"
                     ></textarea>

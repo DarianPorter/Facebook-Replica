@@ -54,8 +54,8 @@ class ProfilePostForm extends React.Component{
                         placeholder={placehold}
                         id="pfp_input"
                         onKeyDown={(e) => {
-                            if (e.keyCode === 13) {
-                                e.preventDefault
+                            if (e.keyCode === 13 && e.currentTarget.value) {
+                                e.preventDefault()
                                 this.submitForm(this.state) 
                             } 
                         }}
@@ -71,5 +71,3 @@ class ProfilePostForm extends React.Component{
 }
 
 export default withRouter(connect(msp,mdp)(ProfilePostForm))
-
-// to be tested 8*****/

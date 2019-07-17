@@ -16,8 +16,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show 
-        @user = User.find_by(id: params[:user_id])
-        @user.posts
+        @user = User.includes(:posts) .find(params[:id])
         render "api/users/show"
     end
 

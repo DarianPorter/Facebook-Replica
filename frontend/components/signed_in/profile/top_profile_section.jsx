@@ -5,13 +5,13 @@ import { findPerson} from '../../../actions/user_actions'
 
 const msp =(state, ownProps)=>{
     return({
-        userPageName: state.entities.users[ownProps.match.params.user_id]
+        user: state.entities.users[ownProps.match.params.user_id]
     })
 }
 
 const mdp =(dispatch)=>{
     return({
-
+        userInfo: (id)=>{return dispatch(findPerson(id))}
     })
 }
 
@@ -20,12 +20,12 @@ class TopProfileSection extends React.Component{
         super(props)
     }
 
-    // componentDidMount(){
-    //     findPerson(this.props.match.params.user_id)
-    // }
+    componentDidMount(){
+        this.props.userInfo(this.props.match.params.user_id)
+    }
 
     render(){
-        return(
+       return this.props.user ? (
             <div className="top-section">
                 <div className="cover-photo">
                         <img 
@@ -34,9 +34,9 @@ class TopProfileSection extends React.Component{
                             className="pfp"
                         />
                         <h1 className="profile-user-name">{
-                            this.props.userPageName.firstname 
+                            this.props.user.firstname 
                             + " " + 
-                            this.props.userPageName.lastname
+                            this.props.user.lastname
                         }</h1>
                 </div>
                 <div className="options">
@@ -45,7 +45,10 @@ class TopProfileSection extends React.Component{
                     <p>Friends</p>
                 </div>
             </div>
-        );
+        ) : (
+
+            null
+        )
     }
 }
 

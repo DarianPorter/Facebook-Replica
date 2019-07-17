@@ -29,6 +29,7 @@ class Post extends React.Component{
         this.goToUserPage = this.goToUserPage.bind(this);
         this.likePost = this.likePost.bind(this);
         this.unlikePost = this.unlikePost.bind(this);
+        this.startComment = this.startComment.bind(this);
     }
 
     componentDidMount(){
@@ -53,7 +54,7 @@ class Post extends React.Component{
         }
     }
     startComment(){
-        document.getElementById("comment-input").focus()
+        document.getElementById(`input-${this.props.post.id}`).focus()
     }
 
     makeComment(e){
@@ -194,9 +195,9 @@ class Post extends React.Component{
                     />
                     <input
                         type="text"
+                        id={`input-${this.props.post.id}`}
                         placeholder="Write a comment..."
-                        id="comment-input"
-                        onKeyDown={(e)=>{if(e.keyCode === 13){this.makeComment(e)}}}
+                        onKeyDown={(e)=>{if(e.keyCode === 13 && e.currentTarget.value){this.makeComment(e)}}}
                     />
                 </div>
             </div>
