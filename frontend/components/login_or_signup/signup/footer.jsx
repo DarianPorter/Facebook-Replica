@@ -32,7 +32,7 @@ export default ()=>{
                     <i className="fab fa-linkedin" onClick={() => {
                         window.open("https://www.linkedin.com/in/darian-baptiste-09a8aa189/", '_blank').focus();}}>
                     </i>
-                    <i class="fas fa-globe" onClick={() => {
+                    <i className="fas fa-globe" onClick={() => {
                         window.open("https://darianporter.github.io/", '_blank').focus();}}>
                     </i>
                 </div>

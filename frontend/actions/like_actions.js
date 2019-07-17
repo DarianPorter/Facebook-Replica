@@ -23,10 +23,10 @@ const createPostLike = (likeInfo)=>{
         like: likeInfo
     })
 }
-const createDeleteLike = (likeInfo)=>{
+const createDeleteLike = (likeId)=>{
     return ({
         type: DELETE_LIKE,
-        like: likeInfo
+        like: likeId
     })
 }
 
@@ -55,14 +55,14 @@ export const likePost = (likeData) =>{
     }
 }
 
-export const deleteLike = (likeData) => {
+export const deleteLike = (likeId) => {
     return(dispatch)=>{
-        return ApiUtil.deleteLike(likeData).then(
-            (payload)=>{
-                return dispatch(createDeleteLike(payload))
-            },(response)=>{
+        return ApiUtil.deletePostLike(likeId).then(
+            ()=>{
+                return dispatch(createDeleteLike(likeId))
+            },(response) => {
                 return dispatch(LikeErrors(response))
             }
-        )
+        );
     }
 }
