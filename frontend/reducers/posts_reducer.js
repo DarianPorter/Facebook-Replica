@@ -22,6 +22,9 @@ import {
 const postReducer = (state = {}, action) =>{
     Object.freeze(state)
     switch(action.type){
+        case LIKE_COMMENT:
+            state[action.like.post.id].comments[action.like.likeable_id].like_count++
+            return merge({},state)
         case DELETE_LIKE:
             let unlikedState = merge({},state);
             let like = action.like;

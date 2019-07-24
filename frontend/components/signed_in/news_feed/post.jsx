@@ -47,7 +47,7 @@ class Post extends React.Component{
     comments(){
         if(this.props.post.comments){
             return Object.keys(this.props.post.comments).map((key, i)=>{
-                return <PostComment key={i} comment={this.props.post.comments[key]} />
+                return <PostComment key={i} comment={this.props.post.comments[key]} postId={this.props.post.id} />
             })
         }else{
             return null

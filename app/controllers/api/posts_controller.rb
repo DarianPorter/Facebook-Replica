@@ -5,7 +5,7 @@ class Api::PostsController < ApplicationController
             render "api/posts/index.json.jbuilder" 
 
         else
-            @posts = Post.all.includes(:user, likes: [:user], comments: [:likes, :user] )
+            @posts = Post.all.includes(:user, likes: [:user], comments: [{likes: :user}, :user] )
             render "api/posts/index.json.jbuilder" 
         end
     end

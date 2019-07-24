@@ -1,15 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {likeComment} from '../../../actions/like_actions'
+
+const msp = (state, ownProps)=>{
+    return ({
+        post: state.entities.posts[ownProps.postId],
+        user_id: state.session.id
+    })
+}
+const mdp = (dispatch)=>{
+    return ({
+        likeComment: (likeInfo)=>{return dispatch(likeComment(likeInfo))}
+    })
+}
 
 class PostComment extends React.Component{
     constructor(props){
         super(props)
     }
     
-    render(){
-        if (this.props.comment.like_count > 0){
-            debugger
+    dispatchlike(){
+        let isliked = false;
+        let comment = this.props.post.comments[this.props.comment.id];
+        if (comment.likes){
+            Object.keys(comment.likes).map((key, i)=>{
+                if(comment.likes[key].id === this.props.user_id){
+                    liked = true
+                }
+            })
         }
+        if(isliked === false || !comment.likes){
+            let likeInfo = {
+                likeable_id: this.props.comment.id,
+                likeable_type: "Comment",
+                user_id: this.props.user_id
+            }
+            this.props.likeComment(likeInfo)
+        }
+    }
+    render(){
         let likes = this.props.comment.like_count > 0 ? (
             <div className="likes">
                 <i className="far fa-thumbs-up"> </i> <p> · </p> <p> {this.props.comment.like_count}</p>  <p> · </p>
@@ -35,7 +65,10 @@ class PostComment extends React.Component{
                             {this.props.comment.body}</p>
                     </div>
                     <div className="comment-actions">
-                        <p className="like">Like</p> <p> · </p> { likes } <p> {this.props.comment.date} </p>
+                        <p 
+                            onClick={()=>{this.dispatchlike()}}
+                            className="like"
+                        >Like</p> <p> · </p> { likes } <p> {this.props.comment.date} </p>
                     </div>
                 </div>
             </div>
@@ -43,4 +76,4 @@ class PostComment extends React.Component{
     }
 }
 
-export default PostComment
+export default connect(msp,mdp)(PostComment)
