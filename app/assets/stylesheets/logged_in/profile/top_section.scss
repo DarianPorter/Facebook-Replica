@@ -8,7 +8,7 @@
 .cover-photo{
     background-size: auto;
     background-size: 851px 359px;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0W42GzDQuybBZElkZpaoH49p4AYhWmTdRsVW90gGcGszXeTQSdw");
+    background-image: url("https://vip-go.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/facebook-cover-photo-header.jpg");
     width: 851px;
     height: 359px;
     position: relative;
@@ -30,6 +30,7 @@
     border-right: 1px solid #d3d5db;
 }
 .pfp {
+    object-fit: cover;
     margin-left: 10px;
     margin-top: 205px;
     height: 168px;

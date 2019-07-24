@@ -3,25 +3,27 @@
     font-size: 13px;
     box-sizing: border-box;
     display: flex;
-    height: 30px;
+    height: fit-content;
     width: 87%;
     margin: auto;
     border-radius: 2px;
     padding-top: 7px;
+    padding-bottom: 7px;
     padding-left: 5px;
 }
 .link:hover{
     cursor: pointer;
     background: #f2f3f5;
-    border: 1px solid #d3d5db;
+    outline: 1px solid #d3d5db;
 
 }
 .link img{
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    padding-right: 10px;
+    object-fit: cover;
+    height: 22px;
+    width: 22px;
+    border-radius: 10px;
 }
 .link p{
-    padding-top: 3px;
+    padding-top: 4px;
+    padding-left: 8px;
 }

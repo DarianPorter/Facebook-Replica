@@ -11,6 +11,7 @@
     border-top-right-radius: 5px;
 }
 .pic-textarea img{
+    object-fit: cover;
     width: 45px;
     height: 45px;
     border-radius: 45px;
@@ -75,6 +76,7 @@
 }
 
 .search-bar-pic{
+    object-fit: cover;
     width: 24px;
     height: 24px;
     border-radius: 24px;
