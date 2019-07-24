@@ -7,9 +7,16 @@
         json.set! :comments do 
             post.comments.each do |comment|
                 json.set! comment.id do 
-                    json.extract! comment, :id, :likes, :body, :post_id, :user_id, :date
+                    json.extract! comment, :id, :body, :post_id, :user_id, :date
                     json.like_count comment.likes.length
                     json.extract! comment.user , :firstname, :lastname 
+                    # json.set! :likes do
+                    #     comment.likes.each do |like|
+                    #         json.set! like.id do 
+                    #             json.extract! like.user, :firstname, :lastname, :id
+                    #         end
+                    #     end
+                    # end
                 end 
             end 
         end

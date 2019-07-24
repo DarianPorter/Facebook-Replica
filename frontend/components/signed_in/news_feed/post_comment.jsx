@@ -7,6 +7,16 @@ class PostComment extends React.Component{
     }
     
     render(){
+        if (this.props.comment.like_count > 0){
+            debugger
+        }
+        let likes = this.props.comment.like_count > 0 ? (
+            <div className="likes">
+                <i className="far fa-thumbs-up"> </i> <p> · </p> <p> {this.props.comment.like_count}</p>  <p> · </p>
+            </div>
+        ) : (
+            null
+        )
         return (
             <div className="comment">
                 <Link to={`users/${this.props.comment.user_id}`}>
@@ -25,7 +35,7 @@ class PostComment extends React.Component{
                             {this.props.comment.body}</p>
                     </div>
                     <div className="comment-actions">
-                        <p className="like">Like</p> <p> · </p> <p> {this.props.comment.date} </p>
+                        <p className="like">Like</p> <p> · </p> { likes } <p> {this.props.comment.date} </p>
                     </div>
                 </div>
             </div>

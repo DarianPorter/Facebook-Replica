@@ -17,8 +17,24 @@
     margin-left: 10px;
     margin-bottom: 3px;
     padding-top: 3px;
-    width: 100px;
-    justify-content: space-around;
+    width: 255px;
+    min-width: 100px;
+    color: #616770;
+    max-width: fit-content;
+}
+.comment-actions p{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.comment-actions i{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.likes{
+    display: flex;
+}
+.likes i{
+    color:#5c80cf;
 }
 .author-image{
     border-radius: 100%;
@@ -28,6 +44,7 @@
     margin-right: 6px;
 }
 .author-comment{
+    width: fit-content;
     background-color: #f2f3f5;
     border-radius: 18px;
     margin: 0;
@@ -50,4 +67,5 @@
 }
 .like:hover{
     text-decoration: underline;
+    cursor: pointer;
 }

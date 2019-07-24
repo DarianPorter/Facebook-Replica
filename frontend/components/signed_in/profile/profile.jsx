@@ -5,7 +5,7 @@ import TopSection from './top_profile_section';
 import LeftContent from './left_profile_content';
 import PostIndex from '../news_feed/posts_index';
 import ProfilePostForm from './post_profile_form';
-import {findPerson} from '../../../actions/user_actions'
+import {findPerson} from '../../../actions/user_actions';
 
 const msp = (state, ownProps) => {
     return ({
