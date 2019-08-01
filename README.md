@@ -33,5 +33,5 @@ Mugbook is a facebook look-alike single-page web app using *Ruby on Rails* on th
 
 ## Implementation
 ### User Auth
-![facebook signin/login](https://github.com/DarianPorter/Facebook-Replica/tree/master/app/assets/images/readme/facebook_auth.jpg?raw=true)
-![mugbook signin/login](https://github.com/DarianPorter/Facebook-Replica/tree/master/app/assets/images/readme/mugbook_auth.jpg?raw=true)
+![facebook signin/login](https://github.com/DarianPorter/Facebook-Replica/blob/master/app/assets/images/readme/facebook_auth.jpg?raw=true)
+![mugbook signin/login](https://github.com/DarianPorter/Facebook-Replica/blob/master/app/assets/images/readme/mugbook_auth.jpg?raw=true)
