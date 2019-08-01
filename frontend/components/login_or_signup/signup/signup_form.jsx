@@ -115,10 +115,10 @@ class SignUpForm extends React.Component {
                     </label>
                 </div>
                 <div>
-                    <p>
-                        By clicking Sign Up, you agree to our Terms, 
-                        Data Policy and Cookie Policy. You may receive 
-                        SMS notifications from us and can opt out at any time.
+                    <p className="agreement">
+                        By clicking Sign Up, you agree to our Terms, Data Policy <br/>
+                        and Cookie Policy. You may receive SMS notifications from us <br/>
+                        and can opt out at any time.
                     </p>
                 </div>
                 <button 
@@ -129,8 +129,6 @@ class SignUpForm extends React.Component {
                     className="fake-user-btn signup-btn"
                     onClick={this.create()}
                 >Create fake Info</button>
-                <div className="seperator"></div>
-                <p>Create a Page for a celebrity, band or business.</p>
             </div>
         );
     }
