@@ -5,8 +5,7 @@ Mugbook is a facebook look-alike single-page web app using *Ruby on Rails* on th
 ## Background and Overview
 
 #### Motovation for the Project
-    I wanted to choose a social media platform that I was very fimilar with and had a lot of experience using, so when it came to implimenting features I would have a prior knowledge on how said feature worked and would have a vague understanding on how it was implimented.
-    Also, I wanted something that someone could pick up and be fimilar with, from prior experience or exposure to actual facebook.
+I wanted to choose a social media platform that I was very fimilar with and had a lot of experience using, so when it came to implimenting features I would have a prior knowledge on how said feature worked and would have a vague understanding on how it was implimented. Also, I wanted something that someone could pick up and be fimilar with, from prior experience or exposure to actual facebook.
 
 #### High Level Overview
     Build a clone of facebook down to styling with implimentation of spefic features 
@@ -35,3 +34,6 @@ Mugbook is a facebook look-alike single-page web app using *Ruby on Rails* on th
 ### User Auth
 ![facebook signin/login](https://github.com/DarianPorter/Facebook-Replica/blob/master/app/assets/images/readme/facebook_auth.jpg?raw=true)
 ![mugbook signin/login](https://github.com/DarianPorter/Facebook-Replica/blob/master/app/assets/images/readme/mugbook_auth.jpg?raw=true)
+
+mugbook features user-auth where users passwords are encrypted using bcrypt **the most current and secure when it comes to encryption** storing non-plain text passwords in the database this is a level of security all production apps use when storing user passwords when saving their data in a database. On the initial page where users first go to when visiting the website,
+
