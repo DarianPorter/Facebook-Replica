@@ -6,6 +6,10 @@ import NFLeftSec from './left_news_feed_sec'
 class NewsFeed extends React.Component{
     constructor(props){
         super(props)
+        this.ad = null;
+    }
+    componentDidMount(){
+        this.props.ad = window.fake_add;
     }
     render(){
         return(
@@ -24,7 +28,7 @@ class NewsFeed extends React.Component{
                                 <p>Sponsored</p> <p>Create Ad</p>
                             </div>
                             <img 
-                                src={window.fake_add} 
+                                src={this.props.ad} 
                                 alt="add"
                                 onClick={() => { window.open("https://darianporter.github.io/", '_blank').focus();}}
                             />

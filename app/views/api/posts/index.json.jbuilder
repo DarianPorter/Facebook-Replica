@@ -1,9 +1,9 @@
 @posts.each do |post|
     json.set! post.id do
         json.extract! post, :body, :user_id, :date, :receiver_id, :id
-        json.like_count post.likes.length
-        
         json.extract! post.user, :firstname, :lastname
+        json.like_count post.likes.length
+
         json.set! :comments do 
             post.comments.each do |comment|
                 json.set! comment.id do 
@@ -20,6 +20,7 @@
                 end 
             end 
         end
+
         json.set! :likes do 
             post.likes.each do |like|
                 json.set! like.id do 

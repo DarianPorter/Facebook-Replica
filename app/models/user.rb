@@ -6,6 +6,8 @@ class User < ApplicationRecord
     after_initialize :ensure_token
 
     has_many :posts
+    has_many :friends, foreign_key: :friend_id, class_name: :Friend
+    has_many :befriended, foreign_key: :user_id, class_name: :Friend 
 
     attr_reader :password
 

@@ -6,6 +6,8 @@
 }
 
 .n-f-content{
+    min-height: 100vh;
+    height: fit-content;
     display: flex;
     padding-top: 35px;
     background: #e9ebee;
