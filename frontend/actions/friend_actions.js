@@ -8,8 +8,28 @@ const addFriend =(friendInfo)=>{
         friend: friendInfo
     })
 }
-const accept_friend = ()=>{
+const accept_friend = (friendInfo)=>{
     return ({
         type: ACCEPT_FRIENDSHIP
     })
+}
+
+export const requestFriendship = (friendInfo)=>{
+    return (dispatch)=>{
+        return ApiUtil.requestFriendship(friendInfo).then(
+            (payload)=>{
+                return dispatch(addFriend(payload))
+            }
+        )
+    }
+}
+
+export const acceptFriendRequest = (friendInfo)=>{
+    return (dispatch)=>{
+        return ApiUtil.acceptFriendRequest(friendInfo).then(
+            (payload)=>{
+                return dispatch(payload)
+            }
+        )
+    }
 }

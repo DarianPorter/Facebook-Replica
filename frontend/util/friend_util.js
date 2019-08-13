@@ -5,6 +5,12 @@ export const requestFriendship = (friendInfo)=>{
         data: {friend: friendInfo}
     })
 }
+export const acceptFriendRequest = (friendInfo)=>{
+    return $.ajax({
+        method: "PATCH",
+        url: `/api/users/${friendInfo.user_id}/friends/${id}`
+    })
+}
 
 // export const Unfriend = (friendInfo)=>{
 //     return $.ajax({
