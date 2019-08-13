@@ -1,4 +1,4 @@
-class Api::Friends < ApplicationController
+class Api::FriendsController < ApplicationController
 
     def create
         @friend = Friend.new(friend_params)
@@ -10,15 +10,19 @@ class Api::Friends < ApplicationController
         end 
     end 
 
+    def edit 
+        @friend = Friend.find(params[:id])
+        @friend.accepted = true
+        @friend.save
+        debugger
+        # check
+        render 'api/friends/show'
+    end 
+
     def index
         user = User.find(params[:user_id])
         @friends = user.friends
         render "api/friends/index"  
-        # custom query find all requests with accepted 
-    end 
-
-    def destroy
-        #destroy friend where user_id == current user id and the friend id is the one in the params
     end
 
     def friend_params

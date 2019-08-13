@@ -18,7 +18,6 @@
     end 
     json.set! user.id do 
         json.extract! user, :id, :firstname, :lastname
-        # json.posts user.post
         json.set! :friendships do 
             friendships.each do |friend|
                 json.set! friend.id do 

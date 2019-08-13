@@ -1,8 +1,34 @@
-json.extract! @user, :id, :firstname, :lastname, :posts, :friends, :befriended
-json.friends do 
-    @user.friends.each do |friend|
-        json.set! friend.id do 
-            json.extract! friend, :accepted, :friend_id, :user_id
+friendships = []
+pendingfriendships = []
+@user.friends.each do |friend| 
+    if friend[:accepted] == true 
+        friendships.push(friend)
+    else
+        pendingfriendships.push(friend)
+    end 
+end 
+@user.befriended.each do |friend|
+    if friend[:accepted] == true 
+        friendships.push(friend)
+    else
+        pendingfriendships.push(friend)
+    end 
+end 
+json.extract! @user, :id, :firstname, :lastname, :friends, :befriended
+json.set! :friendships do 
+    friendships.each do |friend|
+        json.set friend.id do 
+            json.extract! :friend_id, :accepted
+            json.friendrequester_id :user_id
         end 
-    end
+    end 
+end 
+
+json.set! :pendingfriendships do 
+    pendingfriendships.each do |friend|
+        json.set! friend.id do 
+            json.extract! :friend_id, :accepted
+            json.friendrequester_id :user_id
+        end 
+    end 
 end 

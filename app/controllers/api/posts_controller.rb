@@ -33,6 +33,9 @@ class Api::PostsController < ApplicationController
         @post = Post.find(params[:id])
         @post.likes.destroy
         @post.comments.destroy
+        @post.comments.likes.each do |like|
+            like.destroy
+        end
         @post.destroy
         render "api/posts/show"
     end
