@@ -1,8 +1,39 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import { requestFriendship, acceptFriendRequest } from '../../../actions/friend_actions'
+import {withRouter} from 'react-router-dom'
+
+const msp = (state)=>{
+    return ({
+        current_user_id: state.session.id
+    })
+}
+const mdp = (dispatch) =>{
+    return({
+        requestFriendship: (friendInfo)=>{return dispatch(requestFriendship(friendInfo))},
+        acceptFriendRequest: (friendInfo) => { return dispatch(acceptFriendRequest(friendInfo))}
+    })
+}
 
 class TopProfileSection extends React.Component{
     constructor(props){
         super(props)
+    }
+
+    acceptFriendRequest(){
+        let friendInfo = {
+
+        }
+        debugger
+    }
+
+    requestFriendship(){
+        debugger
+        let friendInfo = {
+            user_id: this.props.current_user_id,
+            friend_id: 2
+        }
+        this.props.requestFriendship(friendInfo);
     }
 
     render(){
@@ -19,7 +50,7 @@ class TopProfileSection extends React.Component{
                         + " " + 
                         this.props.user.lastname
                     }</h1>
-                    <div className="add-friend">
+                    <div className="add-friend" onClick={()=>{this.props.requestFriendship()}}>
                         <span>addfriend </span>
                     </div>
                 </div>
@@ -35,4 +66,4 @@ class TopProfileSection extends React.Component{
     }
 }
 
-export default TopProfileSection;
+export default withRouter(connect(msp, mdp)(TopProfileSection));

@@ -8,9 +8,10 @@ const addFriend =(friendInfo)=>{
         friend: friendInfo
     })
 }
-const accept_friend = (friendInfo)=>{
+const acceptFriendship = (friendInfo)=>{
     return ({
-        type: ACCEPT_FRIENDSHIP
+        type: ACCEPT_FRIENDSHIP, 
+        friend: friendInfo
     })
 }
 
@@ -28,7 +29,7 @@ export const acceptFriendRequest = (friendInfo)=>{
     return (dispatch)=>{
         return ApiUtil.acceptFriendRequest(friendInfo).then(
             (payload)=>{
-                return dispatch(payload)
+                return dispatch(acceptFriendship(payload))
             }
         )
     }
