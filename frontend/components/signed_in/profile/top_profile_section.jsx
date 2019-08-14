@@ -3,9 +3,12 @@ import {connect} from 'react-redux'
 import { requestFriendship, acceptFriendRequest } from '../../../actions/friend_actions'
 import {withRouter} from 'react-router-dom'
 
-const msp = (state)=>{
+const msp = (state, ownProps)=>{
+    debugger
     return ({
-        current_user_id: state.session.id
+        current_user_id: state.session.id,
+        user_from_page: state.entities.users[ownProps.match.params.user_id],
+        current_user: state.entities.users[state.session.id],
     })
 }
 const mdp = (dispatch) =>{
@@ -24,11 +27,9 @@ class TopProfileSection extends React.Component{
         let friendInfo = {
 
         }
-        debugger
     }
 
     requestFriendship(){
-        debugger
         let friendInfo = {
             user_id: this.props.current_user_id,
             friend_id: 2
@@ -37,7 +38,12 @@ class TopProfileSection extends React.Component{
     }
 
     render(){
-       return this.props.user ? (
+        let userPageId = this.props.match.params.user_id;
+        debugger
+        if(this.props.current_user){
+
+        }
+        return this.props.user ? (
             <div className="top-section">
                 <div className="cover-photo">
                     <img 
@@ -50,8 +56,8 @@ class TopProfileSection extends React.Component{
                         + " " + 
                         this.props.user.lastname
                     }</h1>
-                    <div className="add-friend" onClick={()=>{this.props.requestFriendship()}}>
-                        <span>addfriend </span>
+                    <div className="add-friend" onClick={()=>{this.requestFriendship()}}>
+                        <span> <i className="fa fa-user">+</i> Add Friend </span>
                     </div>
                 </div>
                 <div className="options">

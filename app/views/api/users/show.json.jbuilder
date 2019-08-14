@@ -14,7 +14,7 @@ end
         pendingfriendships.push(friend)
     end 
 end 
-json.extract! @user, :id, :firstname, :lastname, :friends, :befriended
+json.extract! @user, :id, :firstname, :lastname
 json.set! :friendships do 
     friendships.each do |friend|
         json.set friend.id do 

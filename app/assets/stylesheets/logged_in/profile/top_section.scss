@@ -6,11 +6,11 @@
 
 }
 .cover-photo{
-    background-size: auto;
-    background-size: 851px 359px;
+    // background-size: auto;
+    background-size: 851px 315px;
     background-image: url("https://vip-go.shutterstock.com/blog/wp-content/uploads/sites/5/2017/08/facebook-cover-photo-header.jpg");
     width: 851px;
-    height: 359px;
+    height: 315px;
     position: relative;
 }
 .options{
@@ -32,7 +32,7 @@
 .pfp {
     object-fit: cover;
     margin-left: 10px;
-    margin-top: 205px;
+    margin-top: 170px;
     height: 168px;
     width: 168px;
     border-radius: 100%;
@@ -43,15 +43,27 @@
     position: absolute;
     color: white;
     font-size: 24px;
-    top: 300px;
-    left: 220px;
+    top: 270px;
+    left: 210px;
     z-index: 0;
 }
 .add-friend{ 
-    position: absolute;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    padding-top: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: #46494b;
+    height: 28px;
     width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    background: grey;
-    margin-left: 750px;
+    position: absolute;
+    background: #e2dfd8;
+    left: 730px;
+    top: 270px;
+}
+.add-friend:hover{
+    cursor: pointer;
 }

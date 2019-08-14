@@ -12,9 +12,14 @@ import {
 const usersReducer =(state= {}, action)=>{
     switch(action.type){
         case REQUEST_FRIENDSHIP:
-            return
-        case ACCEPT_FRIENDSHIP:
             debugger
+            let currentUser = state[action.friend.user_id];
+            let pendingFriendships = merge({}, currentUser.pendingfriendships, {[action.friend.id]: action.friend});
+            currentUser.pendingfriendships = pendingFriendships;
+            return merge({}, state, {[currentUser.id]: currentUser})
+
+        case ACCEPT_FRIENDSHIP:
+            return state
         case RECIEVE_CURRENT_USER:
             return merge({}, state, {
                 [action.existingUser.id]: action.existingUser
