@@ -20,6 +20,7 @@ const mdp = (dispatch) =>{
 class TopProfileSection extends React.Component{
     constructor(props){
         super(props)
+        this.state ={pending: false};
     }
 
     acceptFriendRequest(){
@@ -29,15 +30,36 @@ class TopProfileSection extends React.Component{
     }
 
     requestFriendship(){
-        let friendInfo = {
-            user_id: this.props.current_user_id,
-            friend_id: this.props.match.params.user_id
+        if(!this.pending()){
+            let friendInfo = {
+                user_id: this.props.current_user_id,
+                friend_id: this.props.match.params.user_id
+            }
+            this.props.requestFriendship(friendInfo);
         }
-        this.props.requestFriendship(friendInfo);
     }
+
+    pending(){
+        let userPageId = this.props.match.params.user_id;
+        let currentUser = this.props.current_user;
+
+        if (currentUser.pendingfriendships != undefined) {
+            let keys = Object.keys(currentUser.pendingfriendships)
+            for (let i = 0; i < keys.length; i++) {
+                let key = keys[i];
+                let relation = currentUser.pendingfriendships[key];
+                if (relation.friend_id == userPageId) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     relationship(){
         let userPageId = this.props.match.params.user_id;
         let currentUser = this.props.current_user;
+
         if (currentUser.pendingfriendships != undefined){
             let keys = Object.keys(currentUser.pendingfriendships)
             for(let i = 0; i < keys.length; i++){
@@ -46,21 +68,27 @@ class TopProfileSection extends React.Component{
                 if (relation.friend_id == userPageId){
                     if(relation.accepted === false){
                         return <span> <i className="fa fa-user">+</i> Request Sent </span>
-                    }else{
-                        return <span> <i className="fa fa-check">+</i> Friends </span>
                     }
                 }
             }
-            
         }
+        
         if(currentUser.friendships != undefined){
-            
+            let keys = Object.keys(currentUser.friendships)
+            for(let i = 0; i < keys.length; i++){
+                let key = keys[i]
+                let relation = currentUser.friendships[key];
+                if(relation.friend_id == userPageId){
+                    if (relation.accepted === true) {
+                        return <span><i className="fas fa-check"> </i> Friends </span>
+                    }
+                }
+            }
         }
         return <span> <i className="fa fa-user">+</i> Add Friend </span>
     }
 
     render(){
-        // let friendButton = this.relationship();
         return this.props.user ? (
             <div className="top-section">
                 <div className="cover-photo">
@@ -76,8 +104,6 @@ class TopProfileSection extends React.Component{
                     }</h1>
                     <div className="add-friend" onClick={()=>{this.requestFriendship()}}>
                         {this.relationship()}
-                        {/* {friendButton} */}
-                        {/* <span> <i className="fa fa-user">+</i> Add Friend </span> */}
                     </div>
                 </div>
                 <div className="options">
