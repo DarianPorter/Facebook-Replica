@@ -4,7 +4,6 @@ import { requestFriendship, acceptFriendRequest } from '../../../actions/friend_
 import {withRouter} from 'react-router-dom'
 
 const msp = (state, ownProps)=>{
-    debugger
     return ({
         current_user_id: state.session.id,
         user_from_page: state.entities.users[ownProps.match.params.user_id],
@@ -13,7 +12,7 @@ const msp = (state, ownProps)=>{
 }
 const mdp = (dispatch) =>{
     return({
-        requestFriendship: (friendInfo)=>{return dispatch(requestFriendship(friendInfo))},
+        requestFriendship: (friendInfo) => {return dispatch(requestFriendship(friendInfo))},
         acceptFriendRequest: (friendInfo) => { return dispatch(acceptFriendRequest(friendInfo))}
     })
 }
@@ -32,17 +31,36 @@ class TopProfileSection extends React.Component{
     requestFriendship(){
         let friendInfo = {
             user_id: this.props.current_user_id,
-            friend_id: 2
+            friend_id: this.props.match.params.user_id
         }
         this.props.requestFriendship(friendInfo);
     }
+    relationship(){
+        let userPageId = this.props.match.params.user_id;
+        let currentUser = this.props.current_user;
+        if (currentUser.pendingfriendships != undefined){
+            let keys = Object.keys(currentUser.pendingfriendships)
+            for(let i = 0; i < keys.length; i++){
+                let key = keys[i];
+                let relation = currentUser.pendingfriendships[key];
+                if (relation.friend_id == userPageId){
+                    if(relation.accepted === false){
+                        return <span> <i className="fa fa-user">+</i> Request Sent </span>
+                    }else{
+                        return <span> <i className="fa fa-check">+</i> Friends </span>
+                    }
+                }
+            }
+            
+        }
+        if(currentUser.friendships != undefined){
+            
+        }
+        return <span> <i className="fa fa-user">+</i> Add Friend </span>
+    }
 
     render(){
-        let userPageId = this.props.match.params.user_id;
-        debugger
-        if(this.props.current_user){
-
-        }
+        // let friendButton = this.relationship();
         return this.props.user ? (
             <div className="top-section">
                 <div className="cover-photo">
@@ -57,7 +75,9 @@ class TopProfileSection extends React.Component{
                         this.props.user.lastname
                     }</h1>
                     <div className="add-friend" onClick={()=>{this.requestFriendship()}}>
-                        <span> <i className="fa fa-user">+</i> Add Friend </span>
+                        {this.relationship()}
+                        {/* {friendButton} */}
+                        {/* <span> <i className="fa fa-user">+</i> Add Friend </span> */}
                     </div>
                 </div>
                 <div className="options">
