@@ -41,7 +41,7 @@ class ProfilePage extends React.Component{
             <div className="profile-page">
                 <TopSection user={this.props.user} />
                 <div className="profile-content">
-                    <LeftContent />
+                    <LeftContent user={this.props.user} />
                     <div className="profile-post-index">
                         <ProfilePostForm user={this.props.userInfo} />
                         <PostIndex usersPage={true} />

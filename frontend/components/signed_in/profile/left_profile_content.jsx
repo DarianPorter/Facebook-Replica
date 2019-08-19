@@ -1,4 +1,5 @@
 import React from 'react'
+import FriendsCompoent  from "./friends";
 
 class ProfileLeftContent extends React.Component{
     constructor(props){
@@ -6,8 +7,12 @@ class ProfileLeftContent extends React.Component{
     }
     render(){
         return(
-            <div className="left-content">
 
+            <div className="left-content">
+                <FriendsCompoent user={this.props.user}/>
+                <div className="blank-left-content">
+
+                </div>
             </div>
         );
     }

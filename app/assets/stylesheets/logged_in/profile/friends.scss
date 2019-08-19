@@ -1,0 +1,44 @@
+.friends{
+    background: white;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    height: 363px;
+    margin-bottom: 12px;
+}
+.friend-tile{
+    background: aquamarine;
+    height: 101px;
+    width: 101px;
+    margin: 2px 2px;
+}
+.friend-tiles{
+    
+}
+.friends-header{
+    display: flex;
+    padding: 12px 0px;
+    margin: 0px 12px;
+    height: fit-content;
+}
+
+.friends-header i{
+    color: #f52a6b;
+    padding-right: 5px;
+    font-size: 24px;
+}
+.friends-header span{
+    padding-left: 2px;
+    padding-top: 6px;
+}
+
+.friends-header p {
+    color: #1d2129;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.friend-count{
+    color: #90949c;
+    font-size: 14px;
+    padding-top: 1px;
+}
