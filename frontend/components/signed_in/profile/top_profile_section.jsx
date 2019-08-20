@@ -59,6 +59,9 @@ class TopProfileSection extends React.Component{
     relationship(){
         let userPageId = this.props.match.params.user_id;
         let currentUser = this.props.current_user;
+        if(currentUser.id == userPageId){
+            return <span> My Page </span>
+        }
 
         if (currentUser.pendingfriendships != undefined){
             let keys = Object.keys(currentUser.pendingfriendships)

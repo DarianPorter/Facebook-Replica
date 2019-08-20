@@ -10,9 +10,12 @@
     height: 101px;
     width: 101px;
     margin: 2px 2px;
+    display: flex;
 }
 .friend-tiles{
-    
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 3px;
 }
 .friends-header{
     display: flex;
