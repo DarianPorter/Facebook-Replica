@@ -7,7 +7,8 @@ import { findPerson } from "../../../actions/user_actions";
 const msp =(state, ownProps)=>{
     return {
         users: state.entities.users,
-        usersPageFriends: state.entities.users[ownProps.match.params.user_id].friends
+        usersPageFriends: state.entities.users[ownProps.match.params.user_id].friends,
+        currentUserId: state.session.id,
     }
 }
 const mdp = (state)=>{
@@ -38,6 +39,7 @@ class Friends extends React.Component{
             Object.keys(user.friendships).map((key) => {
                 console.log(user.friendships[key])
                 friendships.push(<FriendTile
+                    currentUserId={this.props.currentUserId}
                     friend={user.pendingfriendships[key]}
                     key={i}
                     fetchUser={this.props.fetchUser}

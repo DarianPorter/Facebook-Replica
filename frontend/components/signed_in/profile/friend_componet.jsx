@@ -18,8 +18,11 @@ class FriendTile extends React.Component{
     }
 
     goToPage(){
+        debugger
+
+        this.props.currentUserId === this.props.friend
         window.scrollTo(0, 0)
-        this.props.history.push(`/users/${this.props.friend.user_id}`)
+        this.props.history.push(`/users/${this.props.friend.id}`)
     }
 
     render(){
