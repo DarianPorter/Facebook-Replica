@@ -1,4 +1,3 @@
-debugger
 @users.each do |user|
     friendships = []
     pendingfriendships = []

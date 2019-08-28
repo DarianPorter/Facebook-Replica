@@ -14,7 +14,6 @@ class Api::FriendsController < ApplicationController
         @friend = Friend.find(params[:id])
         @friend.accepted = true
         @friend.save
-        debugger
         # check
         render 'api/friends/show'
     end 
