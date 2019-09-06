@@ -6,12 +6,22 @@
     margin-bottom: 12px;
 }
 .friend-tile{
-    background: aquamarine;
+    background: #f5f6f7;
     height: 101px;
     width: 101px;
     margin: 2px 2px;
     display: flex;
+    color: #4b4f56;
+    justify-items: baseline;
+    align-items: flex-end;
+    padding: 5px 5px;
+    box-sizing: border-box;
 }
+.friend-tile:hover{
+    background: #e5eef6;
+    cursor: pointer;
+}
+
 .friend-tiles{
     display: flex;
     flex-wrap: wrap;

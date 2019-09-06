@@ -18,15 +18,34 @@ class FriendTile extends React.Component{
     }
 
     goToPage(){
-        this.props.currentUserId === this.props.friend
-        window.scrollTo(0, 0)
-        this.props.history.push(`/users/${this.props.friend.id}`)
+        let id = null;
+        if (this.props.currentUserId === this.props.friend.friend_id){
+            id = this.props.friend.friendrequester_id;
+        }else{
+            id = this.props.friend.friend_id;
+        }
+        window.scrollTo(0, 0);
+        this.props.history.push(`/users/${id}`);
     }
 
     render(){
+        let user = this.props.users[this.props.friend.friend_id];
+        let usrName = user ? (
+            <div>
+                <span>
+                    {user.firstname}
+                </span>
+                <br />
+                <span>
+                    {user.lastname}
+                </span>
+            </div>
+        ) :(
+            null
+        )
         return(
             <div className="friend-tile" onClick={()=>{ return this.goToPage()}}>
-                <span></span>
+                {usrName}
             </div>
         )
     }
