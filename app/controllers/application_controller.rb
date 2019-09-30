@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
         @user || User.find_by(session_token: session[:session_token])
     end
 
-    def ensure_login
-
-    end
-
     def login(user)
         @user = user
         session[:session_token] = user.reset_token!

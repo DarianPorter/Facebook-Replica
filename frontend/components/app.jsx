@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch,  Link} from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import LogInSignInPage from './login_or_signup/login_signin_page';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NewsFeed from './signed_in/news_feed/news_feed'
